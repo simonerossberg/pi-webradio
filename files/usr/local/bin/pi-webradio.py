@@ -121,7 +121,7 @@ if __name__ == '__main__':
     channels = app.api.radio_get_channels()
     PRINT_CHANNEL_FMT="{0:2d}: {1}"
     for channel in channels:
-      print("SWR3" % PRINT_CHANNEL_FMT.format(channel['nr'],channel['name']))
+      print(PRINT_CHANNEL_FMT.format(channel['nr'],channel['name']))
   else:
     ev_queue = app.api._add_consumer("main")
     threading.Thread(target=process_events,args=(app,options,ev_queue)).start()
