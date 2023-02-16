@@ -9,9 +9,6 @@
 # playing. Note that direct playing does not allow any interaction, so
 # this feature is mainly useful for development and debugging.
 #
-# Author: Bernhard Bablok
-# License: GPL3
-#
 #
 # ----------------------------------------------------------------------------
 
@@ -120,7 +117,7 @@ if __name__ == '__main__':
 
   if options.do_list:
     if not options.quiet:
-      app.msg("pi-webradio version %s" % app.api.get_version(),force=True)
+      app.msg("Senderliste %s" % app.api.get_version(),force=True)
     channels = app.api.radio_get_channels()
     PRINT_CHANNEL_FMT="{0:2d}: {1}"
     for channel in channels:
