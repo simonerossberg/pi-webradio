@@ -117,7 +117,7 @@ if __name__ == '__main__':
 
   if options.do_list:
     if not options.quiet:
-      app.msg("Senderliste %s" % app.api.get_version(),force=True)
+      app.msg("Senderliste: " % app.api.get_version(),force=True)
     channels = app.api.radio_get_channels()
     PRINT_CHANNEL_FMT="{0:2d}: {1}"
     for channel in channels:
