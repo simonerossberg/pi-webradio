@@ -32,25 +32,33 @@ To get a list of all configured channels, run
 
     > pi-webradio.py -l
     pi-webradio version 0.91
-     1: Bayern 1
-     2: Bayern 2
-     3: Bayern 3
-     4: BR-Klassik
-     5: BR24
-     6: BR24live
-     7: France Musique Baroque
-     8: MDR KLASSIK
-     9: NDR Kultur
-    10: hr2-kultur
-    11: SR 2 Kultur
-    12: DLF Kultur
-    13: Klassik im Konzert
-    14: Kulturradio
-    15: SWR 2
-    16: WDR 3
-    17: NDR Info
-    18: Bremen Zwei
-    19: Ö1
+     1: SWR3
+     2: SWR3 Lyrix
+     3: DASDING
+     4: DASDING Rap, sonst nichts
+     5: BigFM
+     6: SWR1 BW
+     7: SWR1 RP
+     8: SWR1 Musik Klub Deutsch
+     9: SWR2
+    10: SWR Aktuell
+    11: SWR4 BW
+    12: SWR4 SWR Schlager
+    13: antenne 1
+    14: antenne 1 Schlager
+    15: antenne 1 Deutsch-Pop
+    16: antenne 1 Party-Kracher
+    17: antenne 1 Weihnachts-Hits
+    18: Die Sendung mit der Maus
+    19: Neckaralb Live
+    20: BarbaRadio
+    21: Bayern 1
+    22: Bayern 2
+    23: Bayern 3
+    24: BR Klassik
+    25: BR Schlager
+    26: BR 24
+    27: BR 24 live
 
 Listing channels is a way to check your channel-file is correct.
 
