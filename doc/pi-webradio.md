@@ -31,7 +31,7 @@ Listing Channels
 To get a list of all configured channels, run
 
     > pi-webradio.py -l
-    pi-webradio version 0.91
+    Senderliste
      1: SWR3
      2: SWR3 Lyrix
      3: DASDING
