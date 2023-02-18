@@ -1,61 +1,61 @@
 [
   { "name": "SWR3",
-    "url":  "https://liveradio.swr.de/sw282p3/swr3/play.mp3",
+    "url":  "http://liveradio.swr.de/sw282p3/swr3/play.mp3",
     "logo": "SWR3.jpg"
   },
   
   { "name": "SWR3 Lyrix",
-    "url":  "https://liveradio.swr.de/sw331ch/raka03/play.mp3",
+    "url":  "http://liveradio.swr.de/sw331ch/raka03/play.mp3",
     "logo": "SWR3Lyrix.jpg"
   },
   
   { "name": "DASDING",
-    "url":  "https://liveradio.swr.de/sw282p3/dasding/play.mp3",
+    "url":  "http://liveradio.swr.de/sw282p3/dasding/play.mp3",
     "logo": "DASDING.jpg"
   },
   
   { "name": "DASDING Rap, sonst nichts",
-    "url":  "https://liveradio.swr.de/sw331ch/raka11/play.mp3",
+    "url":  "http://liveradio.swr.de/sw331ch/raka11/play.mp3",
     "logo": "DASDINGRap.jpg"
   },
   
   { "name": "BigFM",
-    "url":  "https://stream.bigfm.de/bw/mp3-128",
+    "url":  "http://stream.bigfm.de/bw/mp3-128",
     "logo": "BigFM.jpg"
   },
   
   { "name": "SWR1 BW",
-    "url":  "https://liveradio.swr.de/sw282p3/swr1bw/play.mp3",
+    "url":  "http://liveradio.swr.de/sw282p3/swr1bw/play.mp3",
     "logo": "SWR1BW.jpg"
   },
   
   { "name": "SWR1 RP",
-    "url":  "https://liveradio.swr.de/sw282p3/swr1rp/play.mp3",
+    "url":  "http://liveradio.swr.de/sw282p3/swr1rp/play.mp3",
     "logo": "SWR1RP.jpg"
   },
   
   { "name": "SWR1 Musik Klub Deutsch",
-    "url":  "https://liveradio.swr.de/sw331ch/raka13/play.mp3",
+    "url":  "http://liveradio.swr.de/sw331ch/raka13/play.mp3",
     "logo": "SWR1MusikKlubDeutsch.jpg"
   },
   
   { "name": "SWR2",
-    "url":  "https://liveradio.swr.de/sw282p3/swr2/play.mp3",
+    "url":  "http://liveradio.swr.de/sw282p3/swr2/play.mp3",
     "logo": "SWR2.jpg"
   },
   
   { "name": "SWR Aktuell",
-    "url":  "https://liveradio.swr.de/sw282p3/swraktuell/play.mp3",
+    "url":  "http://liveradio.swr.de/sw282p3/swraktuell/play.mp3",
     "logo": "SWRAktuell.jpg"
   },
   
   { "name": "SWR4 BW",
-    "url":  "https://liveradio.swr.de/sw282p3/swr4bw/play.mp3",
+    "url":  "http://liveradio.swr.de/sw282p3/swr4bw/play.mp3",
     "logo": "SWR4BW.jpg"
   },
   
   { "name": "SWR4 SWR Schlager",
-    "url":  "https://liveradio.swr.de/sw331ch/raka18/play.mp3",
+    "url":  "http://liveradio.swr.de/sw331ch/raka18/play.mp3",
     "logo": "SWR4SWRSchlager.jpg"
   },
   
