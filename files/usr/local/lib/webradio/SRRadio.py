@@ -42,7 +42,7 @@ class Radio(Base):
     """ read configuration from config-file """
 
     # section [GLOBAL]
-    default_path        = "/etc/pi-webradio.channels"
+    default_path        = "files/etc/pi-webradio.channels"
     self._channel_file  = self.get_value(self._app.parser,"GLOBAL","channel_file",
                                          default_path)
 
