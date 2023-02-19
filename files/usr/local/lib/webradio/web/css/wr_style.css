@@ -11,7 +11,7 @@
 * ------------------------------------------------------------------------- */
 
 body {
-  background: black;
+  background: #EBE0D0;
   height: 400px;
   width: 100%;
   margin: 0 auto;
@@ -30,8 +30,8 @@ body {
   left: 5%;
   width: 90%;
   text-align: center;
-  background: blue;
-  color: white;
+  background: #FF0080;
+  color: #FF0080;
   border-radius: 10px;
   font-size: 36px;
 }
@@ -48,22 +48,22 @@ body {
   text-align: center;
   padding: 16px;
   transition: all 0.3s ease;
-  color: blue;
+  color: #FF0080;
   font-size: 36px;
 }
 
 #menu a:hover {
-  background: white;
+  background: #FF0080;
 }
 
 .menu_active {
   color: black !important;
-  background-color: blue;
+  background-color: #FF0080;
 }
 
 .menu_disabled {
   color: black !important;
-  background-color: black;
+  background-color: #EBE0D0;
 }
 
 /* content container   ---------------------------------------------------- */
@@ -111,8 +111,8 @@ main {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  color: #B0C5FF;
-  text-shadow: 0 1px 1px #26145F;
+  color: #EC9EC0;
+  text-shadow: 0 1px 1px #A91B60;
 }
 
 /* --- player   ----------------------------------------------------------- */
@@ -142,7 +142,7 @@ main {
   display: flex;
   justify-content: center;
   font-size: 72px;
-  color: blue;
+  color: #FF0080;
 }
 
 .play_img {
@@ -154,7 +154,7 @@ main {
   position: absolute;
   bottom: 8px;
   left: 16px;
-  color: white;
+  color: #FF0080;
   font-size: 22px;
 }
 
@@ -179,9 +179,9 @@ main {
   padding: 16px;
   border-style: double;
   border-width: 5px;
-  border-color: blue;
+  border-color: #FF0080;
   border-radius: 5px;
-  color: lightblue;
+  color: #FF0080;
   font-size: 36px;
   overflow-y: auto;
 }
@@ -193,7 +193,7 @@ main {
   justify-content: left;
   align-items: center;
   margin-left: 15px;
-  color: blue;
+  color: #FF0080;
   font-size: 36px;
 }
 
@@ -203,7 +203,7 @@ main {
 
 .play_time_range {
   flex:1;
-  color: blue;
+  color: #FF0080;
 }
 
 .play_time_tot {
@@ -215,7 +215,7 @@ input[type="range"] {
   margin-right: 15px;
   width: 200px;
   height: 7px;
-  background: lightblue;
+  background: #FF0080;
   border-radius: 5px;
   background-image: linear-gradient(blue, blue);
   background-size: 0% 100%;
@@ -227,13 +227,13 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 0px;
   width: 0px;
-  background: lightblue;
+  background: #FF0080;
 }
 
 input[type=range]::-moz-range-thumb {
   height: 0px;
   width: 0px;
-  background: lightblue;
+  background: #FF0080;
 }
 
 input[type=range]::-webkit-slider-runnable-track  {
@@ -263,10 +263,10 @@ input[type=range]::-webkit-slider-runnable-track  {
   padding: 15px;
   border-style: solid;
   border-width: 1px;
-  border-color: yellow;
+  border-color: #FF0080;
   border-radius: 30px;
   font-size: 36px;
-  color: yellow;
+  color: #FF0080;
 }
 
 .file_item {
@@ -278,10 +278,10 @@ input[type=range]::-webkit-slider-runnable-track  {
   padding: 15px;
   border-style: solid;
   border-width: 1px;
-  border-color: blue;
+  border-color: #FF0080;
   border-radius: 30px;
   font-size: 36px;
-  color: lightblue;
+  color: #FF0080;
   scrollbar-width: none;
 }
 
@@ -296,8 +296,8 @@ input[type=range]::-webkit-slider-runnable-track  {
   border-width: 1px;
   border-radius: 10px;
   border-style: solid;
-  border-color: blue;
-  color: blue;
+  border-color: #FF0080;
+  color: #FF0080;
 }
 
 .file_file {
@@ -328,12 +328,12 @@ input[type=range]::-webkit-slider-runnable-track  {
   display: block;
   text-align: center;
   padding: 16px;
-  color: black;
-  background-color: blue;
+  color: #EBE0D0;
+  background-color: #FF0080;
   font-size: 72px;
 
   border-width: 2px;
   border-radius: 10px;
   border-style: groove;
-  border-color: aqua;
+  border-color: #A91B60;
 }
