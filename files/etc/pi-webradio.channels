@@ -5,23 +5,13 @@
   },
   
   { "name": "SWR3 Lyrix",
-    "url":  "http://liveradio.swr.de/sw331ch/raka03/play.mp3",
+    "url":  "https://liveradio.swr.de/s344dh2/raka03/play.aac",
     "logo": "SWR3Lyrix.jpg"
   },
   
   { "name": "DASDING",
     "url":  "http://liveradio.swr.de/sw282p3/dasding/play.mp3",
     "logo": "DASDING.jpg"
-  },
-  
-  { "name": "DASDING Rap, sonst nichts",
-    "url":  "http://liveradio.swr.de/sw331ch/raka11/play.mp3",
-    "logo": "DASDINGRap.jpg"
-  },
-  
-  { "name": "BigFM",
-    "url":  "http://stream.bigfm.de/bw/mp3-128",
-    "logo": "BigFM.jpg"
   },
   
   { "name": "SWR1 BW",
@@ -32,11 +22,6 @@
   { "name": "SWR1 RP",
     "url":  "http://liveradio.swr.de/sw282p3/swr1rp/play.mp3",
     "logo": "SWR1RP.jpg"
-  },
-  
-  { "name": "SWR1 Musik Klub Deutsch",
-    "url":  "http://liveradio.swr.de/sw331ch/raka13/play.mp3",
-    "logo": "SWR1MusikKlubDeutsch.jpg"
   },
   
   { "name": "SWR2",
@@ -55,7 +40,7 @@
   },
   
   { "name": "SWR4 SWR Schlager",
-    "url":  "http://liveradio.swr.de/sw331ch/raka18/play.mp3",
+    "url":  "https://liveradio.swr.de/sw331ch/raka20/play.aac",
     "logo": "SWR4SWRSchlager.jpg"
   },
   
@@ -92,11 +77,6 @@
   { "name": "Neckaralb Live",
     "url":  "http://neckaralblive.ip-streaming.net/neckaralbliveaacp",
     "logo": "NeckaralbLive.jpg"
-  },
-  
-  { "name": "BarbaRadio",
-    "url":  "http://streams.barbaradio.de/live/mp3-128/homepage/",
-    "logo": "BarbaRadio.jpg"
   },
   
   { "name": "Bayern 1",
