@@ -19,11 +19,6 @@
     "logo": "SWR1BW.jpg"
   },
   
-  { "name": "SWR1 RP",
-    "url":  "http://liveradio.swr.de/sw282p3/swr1rp/play.mp3",
-    "logo": "SWR1RP.jpg"
-  },
-  
   { "name": "SWR2",
     "url":  "http://liveradio.swr.de/sw282p3/swr2/play.mp3",
     "logo": "SWR2.jpg"
