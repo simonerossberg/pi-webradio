@@ -69,6 +69,11 @@
     "logo": "NeckaralbLive.jpg"
   },
   
+  { "name": "Radio Hamburg Deutschrap",
+    "url":  "http://frontend.streamonkey.net/rhh-deutschrap?aggregator=linkradiohamburg",
+    "logo": "RadioHamburgDeutschrap.jpg"
+  },
+  
   { "name": "Bayern 1",
     "url":  "http://dispatcher.rndfnk.com/br/br1/obb/mp3/mid",
     "logo": "Bayern1.jpg"
