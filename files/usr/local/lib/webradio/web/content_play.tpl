@@ -1,13 +1,7 @@
 <!--
 # ----------------------------------------------------------------------------
-# Web-interface for pi-webradio.
 #
-# This file defines the content page for an active playing channel/file
-#
-# Author: Bernhard Bablok
-# License: GPL3
-#
-# Website: https://github.com/bablokb/pi-webradio
+# Diese Datei definiert die Inhaltsseite für einen aktiven Wiedergabekanal/Datei
 #
 # ----------------------------------------------------------------------------
 -->
