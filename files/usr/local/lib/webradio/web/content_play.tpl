@@ -14,7 +14,7 @@
       </div>
       <div class="play_img">
         <img id="wr_play_logo" style="max-height: 200px"
-                                                src="/usr/local/lib/webradio/web/images"/>
+                                                src="/files/usr/local/lib/webradio/web/images"/>
         <div id="wr_play_name" class="play_name"></div>
       </div>
       <div class="play_buttons">
