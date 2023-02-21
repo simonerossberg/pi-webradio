@@ -31,7 +31,7 @@ class WebRadio(Base):
     self.options    = options
     self.parser     = configparser.RawConfigParser(inline_comment_prefixes=(';',))
     self.parser.optionxform = str
-    self.parser.read('/etc/pi-webradio.conf')
+    self.parser.read('/files/etc/pi-webradio.conf')
 
     self.read_config(options)
     self._store = os.path.join(os.path.expanduser("~"),".pi-webradio.json")
