@@ -4,11 +4,6 @@
     "logo": "SWR3.jpg"
   },
   
-  { "name": "SWR3 Lyrix",
-    "url":  "https://liveradio.swr.de/s344dh2/raka03/play.aac",
-    "logo": "SWR3Lyrix.jpg"
-  },
-  
   { "name": "DASDING",
     "url":  "http://liveradio.swr.de/sw282p3/dasding/play.mp3",
     "logo": "DASDING.jpg"
@@ -68,12 +63,7 @@
     "url":  "http://neckaralblive.ip-streaming.net/neckaralbliveaacp",
     "logo": "NeckaralbLive.jpg"
   },
-  
-  { "name": "Radio Hamburg Deutschrap",
-    "url":  "http://frontend.streamonkey.net/rhh-deutschrap?aggregator=linkradiohamburg",
-    "logo": "RadioHamburgDeutschrap.jpg"
-  },
-  
+
   { "name": "Bayern 1",
     "url":  "http://dispatcher.rndfnk.com/br/br1/obb/mp3/mid",
     "logo": "Bayern1.jpg"
