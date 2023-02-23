@@ -20,14 +20,3 @@
 <script>
 startTime();
 </script>
-
-    </p>
-    <p class="clock-label">
-      Seconds
-    </p>
-  </div>
-</div>
-
-<script>
-function updateTime()
-</script>
