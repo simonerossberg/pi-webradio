@@ -11,6 +11,10 @@ body {
   background: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
 }
 
+body {
+  background: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
+}
+
 .container {
   position: absolute;
   top: 50%;
@@ -27,7 +31,6 @@ body {
   height: 200px;
   border: 10px solid #000;
   border-radius: 0%;
-  animation: upper 1s linear infinite;
   z-index: 10;
 }
 
