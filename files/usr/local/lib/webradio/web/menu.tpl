@@ -1,14 +1,11 @@
 <!--
 # ----------------------------------------------------------------------------
-# Web-interface for pi-webradio.
+# Web-interface für Radio.
 #
-# This file defines the navigation-menu
+# Navigations-Menü
 #
-# Author: Bernhard Bablok
-# License: GPL3
-#
-# Website: https://github.com/bablokb/pi-webradio
-#
+# Quelle: (Author: Bernhard Bablok, License: GPL3, Website: https://github.com/bablokb/pi-webradio)
+# Angepasst: Simone Roßberg 23.02.2023
 # ----------------------------------------------------------------------------
 -->
 
