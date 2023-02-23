@@ -1,11 +1,9 @@
 // ---------------------------------------------------------------------------
-// JS support functions.
+// JS Funktionen.
 //
-// Author: Bernhard Bablok
-// License: GPL3
 //
-// Website: https://github.com/bablokb/pi-webradio
-//
+// (Quelle: Author: Bernhard Bablok, License: GPL3, https://github.com/bablokb/pi-webradio)
+// Bearbeitet: Simone Roßberg
 // ---------------------------------------------------------------------------
 
 
@@ -171,23 +169,16 @@ function scroll_to_current_file() {
   Update functions for all clocks
 */
 
-function startTime() {
-  var today = new Date();
-  var h = today.getHours();
-  var m = today.getMinutes();
-  h = formatTime(h);
-  m = formatTime(m);
-  $('.clock').text(h + ":" + m);
-  var t = setTimeout(startTime, 2000);
-};
+document.addEventListener('DOMContentLoaded', () =>
+  requestAnimationFrame(updateTime)
+)
 
-/**
-  Format digits
-*/
-
-function formatTime(i) {
-  if (i < 10) {i = "0" + i};
-  return i;
+function updateTime() {
+  document.documentElement.style.setProperty('--timer-day', "'" + moment().format("dd") + "'");
+  document.documentElement.style.setProperty('--timer-hours', "'" + moment().format("k") + "'");
+  document.documentElement.style.setProperty('--timer-minutes', "'" + moment().format("mm") + "'");
+  document.documentElement.style.setProperty('--timer-seconds', "'" + moment().format("ss") + "'");
+  requestAnimationFrame(updateTime);
 }
 
 /**
