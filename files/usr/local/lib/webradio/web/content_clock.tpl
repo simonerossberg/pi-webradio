@@ -9,14 +9,37 @@
 #
 # ------------------------------------------------------------------------------>
 
-<div id="tab_clock">
- -for(var j = 0; j < 6; j++)
-	 .column
-		 -for(var i = 0; i < (j === 0 ? 3 : (10 - !(j % 2) * 4)); i++)
-			 .num=i
-	 -if(j % 2 === 1 && j < 5)
-		 .colon
+<div id="tab_clock" class="clock-container">
+  <div class="clock-col">
+    <p class="clock-day clock-timer">
+    </p>
+    <p class="clock-label">
+      Day
+    </p>
+  </div>
+  <div class="clock-col">
+    <p class="clock-hours clock-timer">
+    </p>
+    <p class="clock-label">
+      Hours
+    </p>
+  </div>
+  <div class="clock-col">
+    <p class="clock-minutes clock-timer">
+    </p>
+    <p class="clock-label">
+      Minutes
+    </p>
+  </div>
+  <div class="clock-col">
+    <p class="clock-seconds clock-timer">
+    </p>
+    <p class="clock-label">
+      Seconds
+    </p>
+  </div>
+</div>
 
 <script>
-function getClock()
+function updateTime()
 </script>
