@@ -9,7 +9,7 @@
 #
 # ------------------------------------------------------------------------------>
 
-<div class="clock-container">
+<div id="tab_clock" class="clock-container">
   <div class="clock-col">
     <p class="clock-day clock-timer">
     </p>
