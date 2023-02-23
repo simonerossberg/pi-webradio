@@ -1,7 +1,7 @@
 
 body {
   font-family: Arial;
-  background: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
+  background: #fff;
   height: 400px;
   width: 100%;
   margin: 0 auto;
@@ -37,7 +37,7 @@ body {
   text-align: center;
   padding: 16px;
   transition: all 0.3s ease;
-  color: #ff69b4;
+  color: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
   font-size: 36px;
 }
 
