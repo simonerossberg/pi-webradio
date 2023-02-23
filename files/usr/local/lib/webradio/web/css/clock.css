@@ -8,74 +8,55 @@
 
 $blur: 16px;
 
+@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed:300');
+
+$size: 86px;
+
 body {
-  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-  background: #f3f8fc; /* Old browsers */
-  background: -moz-linear-gradient(top, #f3f8fc 0%, #efe6f9 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #f3f8fc 0%,#efe6f9 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #f3f8fc 0%,#efe6f9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f8fc', endColorstr='#efe6f9',GradientType=0 ); /* IE6-9 */
-  width: 100vw;
-  height: 100vh;
-  min-height: 700px;
+	text-align: center;
+	background-color: hsl(210, 30%, 8%);
+	color: hsla(210, 20%, 90%, 0.89);
+	font-family: 'Roboto Condensed', sans-serif;
+	font-weight: 300;
+	overflow: hidden;
 }
 
-#app {
-  color: white;
-  max-width: 300px;
-  padding: 40px 40px 80px 40px;
-  background: #2b323a; /* Old browsers */
-  background: -moz-linear-gradient(-45deg, #2b323a 0%, #1d0c1f 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(-45deg, #2b323a 0%,#1d0c1f 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(135deg, #2b323a 0%,#1d0c1f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2b323a', endColorstr='#1d0c1f',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
-  margin: 30px auto;
-  display: table;
-  box-shadow: $blur $blur $blur*2 rgba(30, 15, 33, 0.5);
+.column,
+.colon {
+	display: inline-block;
+	vertical-align: top;
+	font-size: $size;
+	line-height: $size;
 }
 
-select, option {
-  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+.column {
+	transition: transform 300ms;
 }
 
-select {
-  background: transparent;
-  color: #b1afb8;
-  font-size: 18px;
-  margin: -23px auto;
-  border: 1px solid #4f4d53;
-  display: table;
-  line-height: 20px;
-  text-align: center;
-  position: relative;
-  z-index: 3000;
+.colon {
+	transition: transform 300ms;
+	transform: translateY(calc(50vh - #{$size / 2}));
+	
+	&:after {
+		content: ':';
+	}
 }
 
-.dial {
-  width: 100%;
-  opacity: 0.85;
-}
-
-.tree-front-group {
-  opacity: 0.5;
-  transform: translateX(-5px);
-}
-
-#moonstars {
-  opacity: 0;
-}
-
-svg text {
-  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
-}
-
-@media (max-width: 600px) {
-  #app {
-    max-width: 200px;
-    margin: 10px auto;
-  }
-  
-  body {
-    min-height: 500px;
-  }
+.num {
+	transition: opacity 500ms, text-shadow 100ms;
+		opacity: 0.025;
+	
+	&.visible {
+		opacity: 1.0;
+		text-shadow: 1px 1px 0px hsl(210, 50%, 40%);
+	}
+	&.close {
+		opacity: 0.35;
+	}
+	&.far {
+		opacity: 0.15;
+	}
+	&.distant {
+		opacity: 0.1;
+	}
 }
