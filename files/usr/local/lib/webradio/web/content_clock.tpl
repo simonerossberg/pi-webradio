@@ -9,30 +9,18 @@
 #
 # ------------------------------------------------------------------------------>
 
-<div id="tab_clock" class="clock-container">
-  <div class="clock-col">
-    <p class="clock-day clock-timer">
-    </p>
-    <p class="clock-label">
-      Day
-    </p>
+<div id="tab_clock" class="clock_container content_area">
+  <div class="rim"></div>
+  <div class="outer"></div>
+  <div class="inner">
   </div>
-  <div class="clock-col">
-    <p class="clock-hours clock-timer">
-    </p>
-    <p class="clock-label">
-      Hours
-    </p>
-  </div>
-  <div class="clock-col">
-    <p class="clock-minutes clock-timer">
-    </p>
-    <p class="clock-label">
-      Minutes
-    </p>
-  </div>
-  <div class="clock-col">
-    <p class="clock-seconds clock-timer">
+  <i id="clock" class="clock"></i>
+</div>
+
+<script>
+startTime();
+</script>
+
     </p>
     <p class="clock-label">
       Seconds
