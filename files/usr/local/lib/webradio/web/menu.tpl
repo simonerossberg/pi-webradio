@@ -18,7 +18,7 @@
   <a id="tab_play_link" class="tablink" href="#"
         onclick="openTab('tab_play')"><i class="fas fa-music"></i></a>
   <a id="tab_files_link" class="tablink" href="#"
-        onclick="openTab('tab_files')"><i class="fas fa-bluetooth"></i></a>
+        onclick="openTab('tab_files')"><i class="fas fa-cookie"></i></a>
   <a id="tab_special_link" class="tablink" href="#"
         onclick="openTab('tab_special')"><i class="fas fa-coffee"></i></a>
 </div>
