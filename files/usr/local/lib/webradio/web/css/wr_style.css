@@ -20,7 +20,7 @@ body {
   left: 5%;
   width: 90%;
   text-align: center;
-  background: #ff69b4;
+  background: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
   color: #ff69b4;
   border-radius: 10px;
   font-size: 36px;
@@ -42,7 +42,7 @@ body {
 }
 
 #menu a:hover {
-  background: #ff69b4;
+  background: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
 }
 
 .menu_active {
