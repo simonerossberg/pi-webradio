@@ -9,8 +9,8 @@
 #
 # ------------------------------------------------------------------------------>
 
-<div id="tab_clock" class="clock_container content_area">
-   <div class="clock-col">
+<div id="tab_clock" class="clock_container">
+ <div class="clock-col">
     <p class="clock-day clock-timer">
     </p>
     <p class="clock-label">
@@ -38,7 +38,7 @@
       Seconds
     </p>
   </div>
-</div>
+</div> 
 
 <script>
 startTime();
