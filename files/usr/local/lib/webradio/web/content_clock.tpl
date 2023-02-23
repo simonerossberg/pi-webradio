@@ -9,7 +9,7 @@
 #
 # ------------------------------------------------------------------------------>
 
-<div id="tab_clock" class="clock-container">
+<div id="tab_clock" class="clock_clock-container content_area">
  <div class="clock-col">
     <p class="clock-day clock-timer">
     </p>
@@ -34,7 +34,7 @@
   <div class="clock-col">
     <p class="clock-seconds clock-timer">
     </p>
-    <p class="clock-label" class="clock">
+    <p class="clock-label">
       Seconds
     </p>
   </div>
