@@ -34,7 +34,7 @@
   <div class="clock-col">
     <p class="clock-seconds clock-timer">
     </p>
-    <p class="clock-label">
+    <p class="clock-label" class="clock">
       Seconds
     </p>
   </div>
