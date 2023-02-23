@@ -64,33 +64,14 @@
     "logo": "NeckaralbLive.jpg"
   },
 
-  { "name": "Bayern 1",
-    "url":  "http://dispatcher.rndfnk.com/br/br1/obb/mp3/mid",
-    "logo": "Bayern1.jpg"
-  },
-
-  { "name": "Bayern 2",
-    "url":  "http://dispatcher.rndfnk.com/br/br2/sued/mp3/mid",
-    "logo": "Bayern2.jpg"
-  },
-
   { "name": "Bayern 3",
     "url":  "http://dispatcher.rndfnk.com/br/br3/live/mp3/mid",
     "logo": "Bayern3.png"
   },
 
-  { "name": "BR Klassik",
-    "url":  "http://dispatcher.rndfnk.com/br/brklassik/live/mp3/high",
-    "logo": "BR-Klassik.png"
-  },
-
   { "name": "BR Schlager",
     "url":  "https://dispatcher.rndfnk.com/br/brschlager/live/mp3/mid",
     "logo": "BRSchlager.png"
-  },
-
-  { "name": "BR 24",
-    "url":  "http://dispatcher.rndfnk.com/br/br24/live/mp3/mid",
-    "logo": "BR24.png"
-  }     
+  }
+   
 ]
