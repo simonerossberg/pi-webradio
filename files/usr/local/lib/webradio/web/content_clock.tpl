@@ -41,5 +41,5 @@
 </div> 
 
 <script>
-startTime();
+updateTime();
 </script>
