@@ -9,8 +9,8 @@
 #
 # ------------------------------------------------------------------------------>
 
-<div id="tab_clock" class="clock_clock-container content_area">
- <div class="clock-col">
+<div class="clock-container">
+  <div class="clock-col">
     <p class="clock-day clock-timer">
     </p>
     <p class="clock-label">
