@@ -6,83 +6,76 @@
 * Quelle: https://dribbble.com/shots/2271565-Day-095-Time-is-Money
 * ------------------------------------------------------------------------- */
 
-.clock-day:before {
-  content: var(--timer-day);
-}
-.clock-hours:before {
-  content: var(--timer-hours);
-}
-.clock-minutes:before {
-  content: var(--timer-minutes);
-}
-.clock-seconds:before {
-  content: var(--timer-seconds);
-}
+$blur: 16px;
 
 body {
-  background: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
-  font-family: "Montserrat", "sans-serif";
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+  background: #f3f8fc; /* Old browsers */
+  background: -moz-linear-gradient(top, #f3f8fc 0%, #efe6f9 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #f3f8fc 0%,#efe6f9 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #f3f8fc 0%,#efe6f9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f8fc', endColorstr='#efe6f9',GradientType=0 ); /* IE6-9 */
+  width: 100vw;
+  height: 100vh;
+  min-height: 700px;
 }
 
-.clock-container {
-  margin-top: 30px;
-  margin-bottom: 30px;
-  background-color: #080808;
-  border-radius: 5px;
-  padding: 60px 20px;
-  box-shadow: 1px 1px 5px rgba(255, 255, 255, 0.15), 0 15px 90px 30px rgba(0, 0, 0, 0.25);
-  display: flex;
+#app {
+  color: white;
+  max-width: 300px;
+  padding: 40px 40px 80px 40px;
+  background: #2b323a; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, #2b323a 0%, #1d0c1f 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg, #2b323a 0%,#1d0c1f 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg, #2b323a 0%,#1d0c1f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2b323a', endColorstr='#1d0c1f',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  margin: 30px auto;
+  display: table;
+  box-shadow: $blur $blur $blur*2 rgba(30, 15, 33, 0.5);
 }
-.clock-col {
+
+select, option {
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+select {
+  background: transparent;
+  color: #b1afb8;
+  font-size: 18px;
+  margin: -23px auto;
+  border: 1px solid #4f4d53;
+  display: table;
+  line-height: 20px;
   text-align: center;
-  margin-right: 40px;
-  margin-left: 40px;
-  min-width: 90px;
   position: relative;
-}
-.clock-col:not(:last-child):before, .clock-col:not(:last-child):after {
-  content: "";
-  background-color: rgba(255, 255, 255, 0.3);
-  height: 5px;
-  width: 5px;
-  border-radius: 50%;
-  display: block;
-  position: absolute;
-  right: -42px;
-}
-.clock-col:not(:last-child):before {
-  top: 35%;
-}
-.clock-col:not(:last-child):after {
-  top: 50%;
-}
-.clock-timer:before {
-  color: #fff;
-  font-size: 4.2rem;
-  text-transform: uppercase;
-}
-.clock-label {
-  color: rgba(255, 255, 255, 0.35);
-  text-transform: uppercase;
-  font-size: 0.7rem;
-  margin-top: 10px;
+  z-index: 3000;
 }
 
-@media (max-width: 825px) {
-  .clock-container {
-    flex-direction: column;
-    padding-top: 40px;
-    padding-bottom: 40px;
-  }
+.dial {
+  width: 100%;
+  opacity: 0.85;
+}
 
-  .clock-col + .clock-col {
-    margin-top: 20px;
+.tree-front-group {
+  opacity: 0.5;
+  transform: translateX(-5px);
+}
+
+#moonstars {
+  opacity: 0;
+}
+
+svg text {
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+@media (max-width: 600px) {
+  #app {
+    max-width: 200px;
+    margin: 10px auto;
   }
-  .clock-col:before, .clock-col:after {
-    display: none !important;
+  
+  body {
+    min-height: 500px;
   }
 }
