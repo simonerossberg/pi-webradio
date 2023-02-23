@@ -1,25 +1,43 @@
 <!--
 # ----------------------------------------------------------------------------
-# Web-interface for pi-webradio.
+# Web-interface Radio
 #
-# This file defines the content page for the clock
+# Homepage Uhr
 #
-# Source: https://codepen.io/cassidoo/pen/LJBBaw (with minor modifications)
+# Quelle: https://codepen.io/eehayman/pen/jVPKpN
 #
-# Author: Bernhard Bablok
-# License: GPL3
 #
-# Website: https://github.com/bablokb/pi-webradio
-#
-# ----------------------------------------------------------------------------
--->
+# ------------------------------------------------------------------------------>
 
 <div id="tab_clock" class="clock_container content_area">
-  <div class="rim"></div>
-  <div class="outer"></div>
-  <div class="inner">
+   <div class="clock-col">
+    <p class="clock-day clock-timer">
+    </p>
+    <p class="clock-label">
+      Day
+    </p>
   </div>
-  <i id="clock" class="clock"></i>
+  <div class="clock-col">
+    <p class="clock-hours clock-timer">
+    </p>
+    <p class="clock-label">
+      Hours
+    </p>
+  </div>
+  <div class="clock-col">
+    <p class="clock-minutes clock-timer">
+    </p>
+    <p class="clock-label">
+      Minutes
+    </p>
+  </div>
+  <div class="clock-col">
+    <p class="clock-seconds clock-timer">
+    </p>
+    <p class="clock-label">
+      Seconds
+    </p>
+  </div>
 </div>
 
 <script>
