@@ -1,7 +1,7 @@
 
 body {
   font-family: Arial;
-  background: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
+  background: linear-gradient(0.25turn, #4169e1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
   height: 400px;
   width: 100%;
   margin: 0 auto;
@@ -20,8 +20,8 @@ body {
   left: 5%;
   width: 90%;
   text-align: center;
-  background: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
-  color: #ff69b4;
+  background: black;
+  color: white;
   border-radius: 10px;
   font-size: 36px;
 }
@@ -37,22 +37,22 @@ body {
   text-align: center;
   padding: 16px;
   transition: all 0.3s ease;
-  color: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
+  color: black;
   font-size: 36px;
 }
 
 #menu a:hover {
-  background: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
+  background: white;
 }
 
 .menu_active {
-  color: white !important;
-  background-color: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
+  color: linear-gradient(0.25turn, #4169e1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
+  background-color: black;
 }
 
 .menu_disabled {
-  color: white !important;
-  background-color: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
+  color: linear-gradient(0.25turn, #4169e1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
+  background-color: linear-gradient(0.25turn, #4169e1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
 }
 
 /* Inhaltsverzeichnis   ---------------------------------------------------- */
@@ -80,7 +80,7 @@ main {
 }
 
 .ch_item {
-  background-image: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
+  background-image: black;
   padding-top: 100%;                  /* quadratische Elemente */
   box-sizing: border-box;
   position: relative;
@@ -101,7 +101,7 @@ main {
   left: 50%;
   transform: translate(-50%, -50%);
   color: #ffffff;
-  text-shadow: 0 1px 1px #ff69b4;
+  text-shadow: 0 1px 1px black;
 }
 
 /* --- Radio-Player   ----------------------------------------------------------- */
@@ -131,7 +131,7 @@ main {
   display: flex;
   justify-content: center;
   font-size: 72px;
-  color: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
+  color: black;
 }
 
 .play_img {
@@ -143,7 +143,7 @@ main {
   position: absolute;
   bottom: 8px;
   left: 16px;
-  color: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
+  color: white;
   font-size: 22px;
 }
 
@@ -157,7 +157,7 @@ main {
 .play_buttons i {
   font-size: 48px;
   padding-left: 5px;
-  color: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
+  color: black;
 }
 
 .play_info {
@@ -171,7 +171,7 @@ main {
   border-width: 5px;
   border-color: black;
   border-radius: 5px;
-  color: #ffffff;
+  color: black;
   font-size: 36px;
   overflow-y: auto;
 }
@@ -183,7 +183,7 @@ main {
   justify-content: left;
   align-items: center;
   margin-left: 15px;
-  color: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
+  color: black;
   font-size: 36px;
 }
 
@@ -193,7 +193,7 @@ main {
 
 .play_time_range {
   flex:1;
-  color: #linear-gradient(45deg, #1870ed 0, #f18f88 100%);
+  color: black;
 }
 
 .play_time_tot {
@@ -205,9 +205,9 @@ input[type="range"] {
   margin-right: 15px;
   width: 200px;
   height: 7px;
-  background: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
+  background: black;
   border-radius: 5px;
-  background-image: linear-gradient(white, white);
+  background-image: linear-gradient(black,black);
   background-size: 0% 100%;
   background-repeat: no-repeat;
   transition: background 1.0s linear;
@@ -217,13 +217,13 @@ input[type="range"]::-webkit-slider-thumb {
   -webkit-appearance: none;
   height: 0px;
   width: 0px;
-  background: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
+  background: black;
 }
 
 input[type=range]::-moz-range-thumb {
   height: 0px;
   width: 0px;
-  background: #ff69b4;
+  background: black;
 }
 
 input[type=range]::-webkit-slider-runnable-track  {
@@ -256,7 +256,7 @@ input[type=range]::-webkit-slider-runnable-track  {
   border-color: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
   border-radius: 30px;
   font-size: 36px;
-  color: #ffffff;
+  color: white;
 }
 
 .file_item {
@@ -268,10 +268,10 @@ input[type=range]::-webkit-slider-runnable-track  {
   padding: 15px;
   border-style: groove;
   border-width: 1px;
-  border-color: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
-  border-radius: 30px;
+  border-color: black;
+  border-radius: 10px;
   font-size: 36px;
-  color: #ffffff;
+  color: black;
   scrollbar-width: none;
 }
 
@@ -286,8 +286,8 @@ input[type=range]::-webkit-slider-runnable-track  {
   border-width: 1px;
   border-radius: 10px;
   border-style: groove;
-  border-color: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
-  color: #ffffff;
+  border-color: black;
+  color: black;
 }
 
 .file_file {
@@ -318,12 +318,12 @@ input[type=range]::-webkit-slider-runnable-track  {
   display: block;
   text-align: center;
   padding: 16px;
-  color: 	#fff;
-  background-color: linear-gradient(45deg, #1870ed 0, #f18f88 100%);
+  color: 	linear-gradient(0.25turn, #4169e1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
+  background-color: black;
   font-size: 72px;
 
   border-width: 2px;
   border-radius: 10px;
   border-style: groove;
-  border-color: #A91B60;
+  border-color: black;
 }
