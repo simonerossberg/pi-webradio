@@ -23,16 +23,20 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   border: 10px solid black;
   border-radius: 0%;
   z-index: 10;
 }
 
 .outer {
-  width: 190px;
-  height: 190px;
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 270px;
+  height: 270px;
   background: black;
   border-radius: 0%;
   box-sizing: border-box;
@@ -43,8 +47,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 50%;
-    height: 50%; 
+    width: 104%;
+    height: 104%; 
     border: 1px linear-gradient(0.25turn, #00CED1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
     box-sizing: border-box;
     border-radius: 50%;
@@ -56,13 +60,13 @@ body {
 
 #clock {
   position: absolute;
-  top: 50px;
+  top: -10px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  height: 100px;
+  height: 50px;
   color: white;
   font-family: 'Jazz LET', fantasy;
-  font-size: 75px;
+  font-size: 100px;
   text-align: center;
 }
