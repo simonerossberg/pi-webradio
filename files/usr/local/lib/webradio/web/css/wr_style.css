@@ -1,7 +1,7 @@
 
 body {
   font-family: 'Arial';
-  background: linear-gradient(0.25turn, #00CED1, #008B8B, #4169e1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
+  background: linear-gradient(0.25turn, #00CED1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
   height: 400px;
   width: 100%;
   margin: 0 auto;
@@ -21,7 +21,7 @@ body {
   width: 90%;
   text-align: center;
   background: black;
-  color: black;
+  color: white;
   border-radius: 10px;
   font-size: 36px;
 }
@@ -42,17 +42,16 @@ body {
 }
 
 #menu a:hover {
-  background: linear-gradient(0.25turn, #00CED1, #008B8B, #4169e1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
-}
+  background: #00CED1;
 
 .menu_active {
-  color: llinear-gradient(0.25turn, #00CED1, #008B8B, #4169e1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
+  color: linear-gradient(0.25turn, #00CED1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
   background-color: black;
 }
 
 .menu_disabled {
-  color: linear-gradient(0.25turn, #00CED1, #008B8B, #4169e1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
-  background-color: black;
+  color: black !important;
+  background-color: #00CED1;
 }
 
 /* Inhaltsverzeichnis   ---------------------------------------------------- */
@@ -86,7 +85,7 @@ main {
   position: relative;
 }
 
-.ch_item .ch_img { /* absolutely positioned */
+.ch_item .ch_img { /* Positon */
   position: absolute;
   top: 0;
   right:0;
@@ -95,7 +94,7 @@ main {
   width: 100%;
 }
 
-.ch_item .ch_txt { /* absolutely positioned */
+.ch_item .ch_txt { /* Position */
   position: absolute;
   top: 50%;
   left: 50%;
@@ -169,7 +168,7 @@ main {
   padding: 16px;
   border-style: groove;
   border-width: 5px;
-  border-color: black;
+  border-color: white;
   border-radius: 5px;
   color: white;
   font-size: 36px;
@@ -207,7 +206,7 @@ input[type="range"] {
   height: 7px;
   background: black;
   border-radius: 5px;
-  background-image: linear-gradient(0.25turn, #00CED1, #008B8B, #4169e1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
+  background-image: linear-gradient(black, black);
   background-size: 0% 100%;
   background-repeat: no-repeat;
   transition: background 1.0s linear;
@@ -253,10 +252,10 @@ input[type=range]::-webkit-slider-runnable-track  {
   padding: 15px;
   border-style: groove;
   border-width: 1px;
-  border-color: linear-gradient(0.25turn, #00CED1, #008B8B, #4169e1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
+  border-color: white;
   border-radius: 30px;
   font-size: 36px;
-  color: linear-gradient(0.25turn, #00CED1, #008B8B, #4169e1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
+  color: linear-gradient(0.25turn, #00CED1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
 }
 
 .file_item {
@@ -318,7 +317,7 @@ input[type=range]::-webkit-slider-runnable-track  {
   display: block;
   text-align: center;
   padding: 16px;
-  color: linear-gradient(0.25turn, #00CED1, #008B8B, #4169e1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
+  color: linear-gradient(0.25turn, #00CED1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
   background-color: black;
   font-size: 72px;
 
