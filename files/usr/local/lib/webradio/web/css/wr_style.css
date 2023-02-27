@@ -51,7 +51,7 @@ body {
 
 .menu_disabled {
   color: black !important;
-  background-color: #00CED1;
+  background-color: linear-gradient(0.25turn, #00CED1, #4b0082);
 }
 
 /* Inhaltsverzeichnis   ---------------------------------------------------- */
@@ -59,6 +59,7 @@ body {
 main {
   font-family: 'Arial';
   flex: 1;
+  background: black;
   padding: 0px 10px;
   height: inherit;
 }
@@ -68,7 +69,7 @@ main {
   margin-left: 5px;
 }
 
-/* Kanalraster   --------------------------------------------------------- */
+/* Kanäle   --------------------------------------------------------- */
 
 .ch_grid {
   display: grid;
@@ -79,7 +80,7 @@ main {
 }
 
 .ch_item {
-  background-image: black;
+  background-image: linear-gradient(0.25turn, #00CED1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
   padding-top: 100%;                  /* quadratische Elemente */
   box-sizing: border-box;
   position: relative;
