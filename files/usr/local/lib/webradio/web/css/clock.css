@@ -6,20 +6,15 @@
 * Quelle: https://dribbble.com/shots/2271565-Day-095-Time-is-Money
 * ------------------------------------------------------------------------- */
 
-
-body {
-  background: linear-gradient(0.25turn, #00CED1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
-}
-
 .container {
-  position: relative;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
 
 .rim {
-  position: relative;
+  position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -31,8 +26,6 @@ body {
 }
 
 .outer {
-  top: 50%;
-  left: 50%;
   width: 170px;
   height: 170px;
   background: black;
@@ -41,7 +34,7 @@ body {
   &::before {
     display: block;
     content: '';
-    position: relative;
+    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -57,8 +50,8 @@ body {
 
 
 #clock {
-  position: relative;
-  top: 50px;
+  position: absolute;
+  top: -10px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
