@@ -1,6 +1,5 @@
 
 body {
-  font-family: 'Arial';
   background: linear-gradient(0.25turn, #00CED1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
   height: 400px;
   width: 100%;
@@ -26,7 +25,7 @@ body {
   font-size: 36px;
 }
 
-/* Menü auf der linken Seite  ------------------------------------------------------- */
+/* Menü auf der linken Seite   ------------------------------------------------------- */
 
 #menu {
   flex: 0 0 90px;
@@ -43,6 +42,7 @@ body {
 
 #menu a:hover {
   background: linear-gradient(0.25turn, #00CED1, #4b0082);
+}
 
 .menu_active {
   color: linear-gradient(0.25turn, #00CED1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
@@ -54,10 +54,9 @@ body {
   background-color: linear-gradient(0.25turn, #00CED1, #4b0082);
 }
 
-/* Inhaltsverzeichnis   ---------------------------------------------------- */
+/* Inhaltsverzeichnis  ---------------------------------------------------- */
 
 main {
-  font-family: 'Arial';
   flex: 1;
   background: black;
   padding: 0px 10px;
@@ -69,7 +68,7 @@ main {
   margin-left: 5px;
 }
 
-/* Kanäle   --------------------------------------------------------- */
+/* Kanal  --------------------------------------------------------- */
 
 .ch_grid {
   display: grid;
@@ -81,12 +80,12 @@ main {
 
 .ch_item {
   background-image: linear-gradient(0.25turn, #00CED1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
-  padding-top: 100%;                  /* quadratische Elemente */
+  padding-top: 100%;                 
   box-sizing: border-box;
   position: relative;
 }
 
-.ch_item .ch_img { /* Positon */
+.ch_item .ch_img { 
   position: absolute;
   top: 0;
   right:0;
@@ -95,7 +94,7 @@ main {
   width: 100%;
 }
 
-.ch_item .ch_txt { /* Position */
+.ch_item .ch_txt { 
   position: absolute;
   top: 50%;
   left: 50%;
@@ -104,15 +103,15 @@ main {
   text-shadow: 0 1px 1px black;
 }
 
-/* --- Radio-Player   ----------------------------------------------------------- */
+/* --- Radio-player   ----------------------------------------------------------- */
 
-.play {                           /* einreihiger Flex-Container */
+.play {                           
   display: flex;
   height: inherit;
   justify-content: flex-start;
 }
 
-.play_left {                      /* einspaltiger Flex-Container */
+.play_left {                      
   display: flex;
   height: inherit;
   align-items: center;
@@ -120,7 +119,7 @@ main {
   justify-content: space-between;
 }
 
-.play_right {                      /* einspaltiger Flex-Container */
+.play_right {                      
   display: flex;
   height: inherit;
   flex: 1;
@@ -161,13 +160,12 @@ main {
 }
 
 .play_info {
-  font-family: 'Arial';
   max-height: 340px;
   flex-grow: 1;
   box-sizing: border-box;
   margin-left: 15px;
   padding: 16px;
-  border-style: groove;
+  border-style: double;
   border-width: 5px;
   border-color: white;
   border-radius: 5px;
@@ -229,12 +227,12 @@ input[type=range]::-moz-range-thumb {
 input[type=range]::-webkit-slider-runnable-track  {
   -webkit-appearance: none;
   box-shadow: none;
-  border: groove;
+  border: none;
   background: transparent;
   transition: background 1.0s ease-in-out;
 }
 
-/* --- Menüleiste  --------------------------------------------------- */
+/* --- Menüleiste   --------------------------------------------------- */
 
 .file_list {
   display: flex;
@@ -251,12 +249,12 @@ input[type=range]::-webkit-slider-runnable-track  {
   width: 95%;
   margin: 5px;
   padding: 15px;
-  border-style: groove;
+  border-style: solid;
   border-width: 1px;
   border-color: white;
   border-radius: 30px;
   font-size: 36px;
-  color: linear-gradient(0.25turn, #00CED1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
+  color: white;
 }
 
 .file_item {
@@ -266,10 +264,10 @@ input[type=range]::-webkit-slider-runnable-track  {
   width: 95%;
   margin: 5px;
   padding: 15px;
-  border-style: groove;
+  border-style: solid;
   border-width: 1px;
   border-color: black;
-  border-radius: 10px;
+  border-radius: 30px;
   font-size: 36px;
   color: black;
   scrollbar-width: none;
@@ -277,7 +275,7 @@ input[type=range]::-webkit-slider-runnable-track  {
 
 .file_item_selected {
   border-width: 7px;
-  border-style: groove;
+  border-style: double;
 }
 
 .file_btn {
@@ -285,7 +283,7 @@ input[type=range]::-webkit-slider-runnable-track  {
   margin-right: 10px;
   border-width: 1px;
   border-radius: 10px;
-  border-style: groove;
+  border-style: solid;
   border-color: black;
   color: black;
 }
@@ -318,7 +316,7 @@ input[type=range]::-webkit-slider-runnable-track  {
   display: block;
   text-align: center;
   padding: 16px;
-  color: linear-gradient(0.25turn, #00CED1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
+  color: linear-gradient(0.25turn, #00CED1, #4b0082, #c8a2c8, #e3b1d2, #f08080);;
   background-color: black;
   font-size: 72px;
 
