@@ -17,7 +17,7 @@ class Bluetooth(Base):
 
     #self.read_config()
     self.register_apis()
-    print("Hier ################################################################################################################################################")
+    self.msg("Hier ################################################################################################################################################")
 
   # --- read configuration   --------------------------------------------------
 
@@ -39,12 +39,12 @@ class Bluetooth(Base):
 
   def bluetooth_start(self):
     """ start playing """
-    print("Bluetooth start")
+    self.msg("Bluetooth start")
 
     
   # --- stop playing   -------------------------------------------------------
 
   def bluetooth_stop(self):
     """ stop playing (play->stop, pause->stop)"""
-    print("Bluetooth stop")
+    self.msg("Bluetooth stop")
    
