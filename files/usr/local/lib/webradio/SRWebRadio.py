@@ -67,6 +67,7 @@ class WebRadio(Base):
       self.radio    = Radio(self)
       self.player   = Player(self)
       self.recorder = Recorder(self)
+      self.bluetooth = Bluetooth(self)
       self._objects = [self,self.radio,self.player,
                        self.recorder,self.backend]
 
