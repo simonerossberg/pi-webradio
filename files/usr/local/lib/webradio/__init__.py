@@ -23,6 +23,7 @@ from . SRWebServer      import WebServer      as WebServer
 from . SRWebRadio       import WebRadio       as WebRadio
 from . SRRadioClient    import RadioClient    as RadioClient
 from . SRKeyController  import KeyController  as KeyController
+from . SRBluetooth      import Bluetooth      as Bluetooth
 
 # voice control with Vosk is optional
 have_vosk = False
