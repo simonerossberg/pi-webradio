@@ -2,7 +2,7 @@ import os, time, datetime, subprocess, threading, copy, queue
 
 from webradio import Base
 
-class Player(Base):
+class Bluetooth(Base):
   """ Player-controller """
 
   def __init__(self,app):
