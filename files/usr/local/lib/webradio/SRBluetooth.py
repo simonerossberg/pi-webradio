@@ -17,6 +17,7 @@ class Bluetooth(Base):
 
     #self.read_config()
     self.register_apis()
+    print("Hier")
 
   # --- read configuration   --------------------------------------------------
 
