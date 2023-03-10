@@ -51,6 +51,7 @@ class WebRadio(Base):
       self.recorder = Recorder(self)
       self.bluetooth = Bluetooth(self)
       self._objects = [self,self.radio,self.recorder, self.bluetooth]
+      self.msg("do record ########")
     elif options.do_play:
       self._events  = RadioEvents(self)
       self.backend  = Mpg123(self)
@@ -58,11 +59,13 @@ class WebRadio(Base):
       self.player   = Player(self)
       self.bluetooth = Bluetooth(self)
       self._objects = [self,self.radio,self.player,self.backend, self.bluetooth]
+      self.msg("do_play ########")
     elif options.do_list:
       self.backend  = None
       self.radio    = Radio(self)
       self.bluetooth = Bluetooth(self)
       self._objects = [self,self.radio, self.bluetooth]
+      self.msg("do_list ########")
     else:
       self._events  = RadioEvents(self)
       self._server  = WebServer(self)
@@ -73,6 +76,7 @@ class WebRadio(Base):
       self.bluetooth = Bluetooth(self)
       self._objects = [self,self.radio,self.player,
                        self.recorder,self.backend, self.bluetooth]
+      self.msg("else ########")
 
     self._state = {'mode': 'radio'}
     self._load_state()
