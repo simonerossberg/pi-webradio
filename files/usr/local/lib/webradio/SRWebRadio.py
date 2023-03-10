@@ -69,7 +69,7 @@ class WebRadio(Base):
       self.recorder = Recorder(self)
       self.bluetooth = Bluetooth(self)
       self._objects = [self,self.radio,self.player,
-                       self.recorder,self.backend]
+                       self.recorder,self.backend, self.bluetooth]
 
     self._state = {'mode': 'radio'}
     self._load_state()
