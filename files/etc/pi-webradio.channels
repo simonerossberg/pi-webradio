@@ -66,12 +66,12 @@
 
   { "name": "Bayern 3",
     "url":  "http://dispatcher.rndfnk.com/br/br3/live/mp3/mid",
-    "logo": "Bayern3.png"
+    "logo": "Bayern3.jpg"
   },
 
   { "name": "BR Schlager",
     "url":  "https://dispatcher.rndfnk.com/br/brschlager/live/mp3/mid",
-    "logo": "BRSchlager.png"
+    "logo": "BRSchlager.jpg"
   }
    
 ]
