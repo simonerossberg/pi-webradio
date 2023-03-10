@@ -63,6 +63,8 @@ class Mpg123(Base):
     self._api.vol_mute_on     = self.vol_mute_on
     self._api.vol_mute_off    = self.vol_mute_off
     self._api.vol_mute_toggle = self.vol_mute_toggle
+    self._api.bluetooth_start = self.bluetooth_start
+    self._api.bluetooth_stop = self.bluetooth_stop
 
   # --- return persistent state of this class   -------------------------------
 
@@ -340,3 +342,16 @@ class Mpg123(Base):
       return self.vol_mute_off()
     else:
       return self.vol_mute_on()
+    
+  # --- start Bluetooth   ------------------------------------------------------- 
+  
+  def bluetooth_start(self):
+    """ start playing """
+    self.msg("Bluetooth start")
+
+    
+  # --- stop Bluetooth   -------------------------------------------------------
+
+  def bluetooth_stop(self):
+    """ stop playing (play->stop, pause->stop)"""
+    self.msg("Bluetooth stop")
