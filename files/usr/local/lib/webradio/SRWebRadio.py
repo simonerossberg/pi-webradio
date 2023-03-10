@@ -49,17 +49,20 @@ class WebRadio(Base):
       self.backend  = None
       self.radio    = Radio(self)
       self.recorder = Recorder(self)
-      self._objects = [self,self.radio,self.recorder]
+      self.bluetooth = Bluetooth(self)
+      self._objects = [self,self.radio,self.recorder, self.bluetooth]
     elif options.do_play:
       self._events  = RadioEvents(self)
       self.backend  = Mpg123(self)
       self.radio    = Radio(self)
       self.player   = Player(self)
-      self._objects = [self,self.radio,self.player,self.backend]
+      self.bluetooth = Bluetooth(self)
+      self._objects = [self,self.radio,self.player,self.backend, self.bluetooth]
     elif options.do_list:
       self.backend  = None
       self.radio    = Radio(self)
-      self._objects = [self,self.radio]
+      self.bluetooth = Bluetooth(self)
+      self._objects = [self,self.radio, self.bluetooth]
     else:
       self._events  = RadioEvents(self)
       self._server  = WebServer(self)
