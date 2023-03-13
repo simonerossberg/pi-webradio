@@ -648,3 +648,22 @@ function rec_toggle() {
   $.get("/api/rec_toggle");
 };
 
+/**
+  bluetooth
+*/
+
+function btStart() {
+  $.get("/api/bluetooth_start",
+        function() {
+          showMsg("Bluetooth starting ...",2000);
+        }
+        );
+};
+
+function btStop() {
+  $.get("/api/bluetooth_stop",
+        function() {
+          showMsg("Bluetooth stopping ...",2000);
+        }
+        );
+};
