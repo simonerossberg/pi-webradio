@@ -17,6 +17,8 @@
         <i class="fas fa-smile-wink"></i></a>
   <a id="tab_play_link" class="tablink" href="#"
         onclick="openTab('tab_play')"><i class="fas fa-music"></i></a>
+  <a id="tab_bluetooth_link" class="tablink" href="#"
+        onclick="openTab('tab_bluetooth')"><i class="fab fa-bluetooth"></i></a>
   <a id="tab_special_link" class="tablink" href="#"
         onclick="openTab('tab_special')"><i class="fas fa-coffee"></i></a>
 </div>
