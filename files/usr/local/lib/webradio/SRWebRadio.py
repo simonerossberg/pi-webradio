@@ -6,17 +6,15 @@
 # The class WebRadio implements the main application class and serves as model
 # and controller (for generic functions)
 #
-# Author: Bernhard Bablok
-# License: GPL3
-#
-# Website: https://github.com/bablokb/pi-webradio
-#
 # -----------------------------------------------------------------------------
 
 import os, sys, json, traceback, threading
 import configparser
 
 from webradio import *
+
+# potential workaround for name 'Bluetooth' not defined
+# from SRBluetooth import Bluetooth
 
 # --- main application class   ----------------------------------------------
 
@@ -31,7 +29,7 @@ class WebRadio(Base):
     self.options    = options
     self.parser     = configparser.RawConfigParser(inline_comment_prefixes=(';',))
     self.parser.optionxform = str
-    self.parser.read('/files/etc/pi-webradio.conf')
+    self.parser.read('/etc/pi-webradio.conf')
 
     self.read_config(options)
     self._store = os.path.join(os.path.expanduser("~"),".pi-webradio.json")
@@ -49,23 +47,17 @@ class WebRadio(Base):
       self.backend  = None
       self.radio    = Radio(self)
       self.recorder = Recorder(self)
-      self.bluetooth = Bluetooth(self)
-      self._objects = [self,self.radio,self.recorder, self.bluetooth]
-      self.msg("do record ########")
+      self._objects = [self,self.radio,self.recorder]
     elif options.do_play:
       self._events  = RadioEvents(self)
       self.backend  = Mpg123(self)
       self.radio    = Radio(self)
       self.player   = Player(self)
-      self.bluetooth = Bluetooth(self)
-      self._objects = [self,self.radio,self.player,self.backend, self.bluetooth]
-      self.msg("do_play ########")
+      self._objects = [self,self.radio,self.player,self.backend]
     elif options.do_list:
       self.backend  = None
       self.radio    = Radio(self)
-      self.bluetooth = Bluetooth(self)
-      self._objects = [self,self.radio, self.bluetooth]
-      self.msg("do_list ########")
+      self._objects = [self,self.radio]
     else:
       self._events  = RadioEvents(self)
       self._server  = WebServer(self)
@@ -75,8 +67,8 @@ class WebRadio(Base):
       self.recorder = Recorder(self)
       self.bluetooth = Bluetooth(self)
       self._objects = [self,self.radio,self.player,
-                       self.recorder,self.backend, self.bluetooth]
-      self.msg("else ########")
+                       self.recorder,self.backend,self.bluetooth]
+      self.msg("SRWebRadio: all Objects including Bluetooth created")
 
     self._state = {'mode': 'radio'}
     self._load_state()
@@ -290,3 +282,4 @@ class WebRadio(Base):
 
     threading.Thread(target=self._server.run).start()
     self.msg("WebRadio: started web-server")
+Foo
