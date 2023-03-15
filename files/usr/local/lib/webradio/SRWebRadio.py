@@ -282,4 +282,3 @@ class WebRadio(Base):
 
     threading.Thread(target=self._server.run).start()
     self.msg("WebRadio: started web-server")
-Foo
