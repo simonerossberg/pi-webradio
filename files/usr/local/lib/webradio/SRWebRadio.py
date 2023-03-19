@@ -5,7 +5,7 @@
 #
 # The class WebRadio implements the main application class and serves as model
 # and controller (for generic functions)
-#
+# Bearbeitet Simone Roßberg
 # -----------------------------------------------------------------------------
 
 import os, sys, json, traceback, threading
