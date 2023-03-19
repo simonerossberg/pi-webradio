@@ -72,95 +72,95 @@
   { "name": "BR Schlager",
     "url":  "http://dispatcher.rndfnk.com/br/brschlager/live/mp3/mid",
     "logo": "BRSchlager.jpg"
-  }
+  },
  
   { "name": "ANTENNE Bayern",
     "url":  "http://play.antenne.de/antenne.m3u",
     "logo": "ANTENNEBayern.jpg"
-  }
+  },
   
   { "name": "OLDIE ANTENNE",
     "url":  "http://play.oldie-antenne.de/oldie-antenne.m3u",
     "logo": "OLDIEANTENNE.jpg"
-  }
+  },
   
   { "name": "ROCK ANTENNE",
     "url":  "http://play.rockantenne.de/rockantenne.m3u",
     "logo": "ROCKANTENNE.jpg"
-  }
+  },
   
   { "name": "ANTENNE BAYERN Hits für Kids",
     "url":  "http://play.antenne.de/hits-fuer-kids.m3u",
     "logo": "ANTENNEBAYERNHitsFürKids.jpg"
-  }
+  },
   
   { "name": "BR Puls",
     "url":  "http://streams.br.de/puls_2.m3u",
     "logo": "BRPuls.jpg"
-  }
+  },
   
   { "name": "hr 3",
     "url":  "http://dispatcher.rndfnk.com/hr/hr3/live/mp3/high",
     "logo": "hr3.jpg"
-  }
+  },
   
   { "name": "You FM",
     "url":  "http://dispatcher.rndfnk.com/hr/youfm/live/mp3/high",
     "logo": "YouFM.jpg"
-  }
+  },
   
   { "name": "MDR Jump",
     "url":  "http://mdr-284320-0.cast.mdr.de/mdr/284320/0/mp3/high/stream.mp3",
     "logo": "MDRJump.jpg"
-  }
+  },
   
   { "name": "MDR Schlagerwelt",
     "url":  "http://mdr-990801-0.cast.mdr.de/mdr/990801/0/mp3/high/stream.mp3",
     "logo": "MDRSchlagerwelt.jpg"
-  }
+  },
   
   { "name": "MDR Tweens",
     "url":  "http://mdr-991101-0.cast.mdr.de/mdr/991101/0/mp3/high/stream.mp3",
     "logo": "MDRTweens.jpg"
-  }
+  },
   
   { "name": "N-Joy",
     "url":  "http://www.ndr.de/resources/metadaten/audio/m3u/n-joy.m3u",
     "logo": "NJoy.jpg"
-  }
+  },
   
   { "name": "Unser Ding",
     "url":  "http://streaming01.sr-online.de/unserding_2.m3u",
     "logo": "Unserding.jpg"
-  }
+  },
   
   { "name": "1 Live",
     "url":  "http://wdr-1live-live.icecastssl.wdr.de/wdr/1live/live/mp3/128/stream.mp3",
     "logo": "1Live.jpg"
-  }
+  },
   
   { "name": "WDR 4",
     "url":  "http://wdr-wdr4-live.icecastssl.wdr.de/wdr/wdr4/live/mp3/128/stream.mp3",
     "logo": "WDR4.jpg"
-  }
+  },
   
   { "name": "WDR 3",
     "url":  "http://wdr-wdr3-live.icecastssl.wdr.de/wdr/wdr3/live/mp3/128/stream.mp3",
     "logo": "WDR3.jpg"
-  }
+  },
   
   { "name": "WDR 5",
     "url":  "http://wdr-wdr5-live.icecastssl.wdr.de/wdr/wdr5/live/mp3/128/stream.mp3",
     "logo": "WDR5.jpg"
-  }
+  },
   
   { "name": "WDR COSMO",
     "url":  "http://wdr-cosmo-live.icecastssl.wdr.de/wdr/cosmo/live/mp3/128/stream.mp3",
     "logo": "WDRCOSMO.jpg"
-  }
+  },
   
   { "name": "Die Neue 107.7",
     "url":  "http://dieneue1077.de/radio-hoeren#",
     "logo": "DieNeue107.7.jpg"
-  };
+  }
 ]
