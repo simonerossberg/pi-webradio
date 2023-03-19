@@ -1,5 +1,5 @@
 import threading, subprocess, signal, os, shlex, re, traceback 
-import bluetooth, vlc, pyatv
+import bluetooth, pyatv
 # from threading import Thread
 # import queue, collections, time
 
