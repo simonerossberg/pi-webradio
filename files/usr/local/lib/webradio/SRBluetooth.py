@@ -80,7 +80,7 @@ class Bluetooth(Base):
     device = devices[0]
     airplay = device.airplay
     
-    target_name = "Simone" # Replace with the name of your Bluetooth speaker
+    target_name = "Simone" # name of Bluetooth speaker
     target_address = None
 
     nearby_devices = bluetooth.discover_devices()
@@ -96,7 +96,7 @@ class Bluetooth(Base):
 
     # Connect to the target device
     sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
-    sock.connect((target_address, 1)) # Replace 1 with the correct channel number for your device
+    sock.connect((target_address, 1)) # channel number of device
    
 
   # --- stop bluetooth   ----------------------------------------------------
