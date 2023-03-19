@@ -3,11 +3,9 @@
 # ----------------------------------------------------------------------------
 # A simple cli-client for the pi-webradio.
 #
-# Author: Bernhard Bablok
-# License: GPL3
+# (Quelle: Author: Bernhard Bablok, License: GPL3, Website: https://github.com/bablokb/pi-webradio)
 #
-# Website: https://github.com/bablokb/pi-webradio
-#
+# Bearbeitet Simone Roßberg
 # ----------------------------------------------------------------------------
 
 DEFAULT_HOST = 'localhost'
