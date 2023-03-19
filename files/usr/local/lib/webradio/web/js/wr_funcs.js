@@ -653,6 +653,8 @@ function rec_toggle() {
 */
 
 function btStart() {
+  $.get("/api/player_stop");
+  showMsg("Stopping Radio ...",2000); 
   $.get("/api/bluetooth_start",
         function() {
           showMsg("Bluetooth starting ...",2000);
@@ -664,6 +666,17 @@ function btStop() {
   $.get("/api/bluetooth_stop",
         function() {
           showMsg("Bluetooth stopping ...",2000);
+    wr_state.mode = 'player';
+  // clear info-box
+  $('#wr_infos').empty();
+
+  // tell server to start playing
+  $.getJSON('/api/player_play_file',data,
+    function(result) {
+      // do nothing
+    }
+  );
+  openTab('tab_play',true);
         }
         );
 };
