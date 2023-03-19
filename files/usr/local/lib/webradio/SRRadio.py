@@ -5,11 +5,9 @@
 #
 # The class Radio implements the core functionality of the web-radio.
 #
-# Author: Bernhard Bablok
-# License: GPL3
+# (Quelle: Author: Bernhard Bablok, License: GPL3, Website: https://github.com/bablokb/pi-webradio)
 #
-# Website: https://github.com/bablokb/pi-webradio
-#
+# Bearbeitet Simone Roßberg
 # -----------------------------------------------------------------------------
 
 import os, time, datetime, shlex, json
