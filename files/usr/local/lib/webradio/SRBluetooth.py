@@ -1,4 +1,5 @@
-import threading, subprocess, signal, os, shlex, re, traceback
+import threading, subprocess, signal, os, shlex, re, traceback 
+import bluetooth, vlc, pyatv
 # from threading import Thread
 # import queue, collections, time
 
@@ -69,15 +70,44 @@ class Bluetooth(Base):
   # --- start bluetooth   ----------------------------------------------------
 
   def bluetooth_start(self):
-    """ start bluetooth """
-    self.msg("Starting Bluetooth ...")
-    # TODO: add code
-    pass
+    """ start bluetooth and Airplay """
+    self.msg("Starting Bluetooth or Airplay...")
+    
+    # Search for AirPlay devices on the network
+    devices = pyatv.scan(timeout=5)
+
+    # Connect to the first device found
+    device = devices[0]
+    airplay = device.airplay
+    
+    target_name = "Simone" # Replace with the name of your Bluetooth speaker
+    target_address = None
+
+    nearby_devices = bluetooth.discover_devices()
+    for addr in nearby_devices:
+       if target_name == bluetooth.lookup_name(addr):
+         target_address = addr
+         break
+
+    if target_address is not None:
+      print("Found target device with address:", target_address)
+    else:
+      print("Could not find target device.")
+
+    # Connect to the target device
+    sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
+    sock.connect((target_address, 1)) # Replace 1 with the correct channel number for your device
+   
 
   # --- stop bluetooth   ----------------------------------------------------
 
   def bluetooth_stop(self):
     """ stop bluetooth """
-    self.msg("Stopping Bluetooth ...")
-    # TODO: add code
-    pass
+    self.msg("Stopping Bluetooth or Airplay...")
+    airplay.stop()
+    
+    # Send the "stop" command to the Bluetooth device
+    sock.send("STOP")
+    # Close the Bluetooth connection
+    sock.close()
+   
