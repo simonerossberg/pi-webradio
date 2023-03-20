@@ -46,7 +46,7 @@ body {
 
 .menu_active {
   color: linear-gradient(0.25turn, #00CED1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
-  background-color: black;
+  background-color: #00CED1;
 }
 
 .menu_disabled {
