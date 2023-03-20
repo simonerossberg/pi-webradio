@@ -11,7 +11,7 @@
 <div id="tab_bluetooth" style="height: 100%; display: none" class="content_area">
   <div class="clock play_clock">
     <i>14:42</i>
-      </div>
+  </div>
       
   <div class="content_special">
     <a onclick="btStart()"><i class="fab fa-bluetooth" alt="Bluetooth start"></i></a>
