@@ -322,5 +322,5 @@ input[type=range]::-webkit-slider-runnable-track  {
   border-width: 2px;
   border-radius: 10px;
   border-style: groove;
-  border-color: black;
+  border-color: white;
 }
