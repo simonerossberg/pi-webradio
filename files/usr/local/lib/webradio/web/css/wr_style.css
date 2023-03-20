@@ -51,7 +51,7 @@ body {
 
 .menu_disabled {
   color: linear-gradient(0.25turn, #00CED1, #4b0082);
-  background-color: black;
+  background-color: #00CED1;
 }
 
 /* Inhaltsverzeichnis  ---------------------------------------------------- */
