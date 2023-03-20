@@ -26,6 +26,7 @@
 }
 
 .outer {
+  position: absolute;
   width: 170px;
   height: 170px;
   background: black;
@@ -51,7 +52,7 @@
 
 #clock {
   position: absolute;
-  top: -10px;
+  top: 50px;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
