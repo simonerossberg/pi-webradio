@@ -36,12 +36,12 @@ body {
   text-align: center;
   padding: 16px;
   transition: all 0.3s ease;
-  color: black;
+  color: #00CED1;
   font-size: 36px;
 }
 
 #menu a:hover {
-  background: white;
+  background: #00CED1;
 }
 
 .menu_active {
