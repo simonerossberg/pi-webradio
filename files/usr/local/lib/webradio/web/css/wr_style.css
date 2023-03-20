@@ -315,7 +315,7 @@ input[type=range]::-webkit-slider-runnable-track  {
   display: block;
   text-align: center;
   padding: 16px;
-  color: linear-gradient(0.25turn, #00CED1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
+  color: #e3b1d2;
   background-color: black;
   font-size: 72px;
 
