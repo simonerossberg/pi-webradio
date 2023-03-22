@@ -5,11 +5,8 @@
 #
 # Collect all API-functions
 #
-# Author: Bernhard Bablok
-# License: GPL3
-#
-# Website: https://github.com/bablokb/pi-webradio
-#
+# Quelle: (Author: Bernhard Bablok, License: GPL3, Website: https://github.com/bablokb/pi-webradio)
+# Bearbeitet: Simone Roßberg
 # ----------------------------------------------------------------------------
 
 from webradio import Base
