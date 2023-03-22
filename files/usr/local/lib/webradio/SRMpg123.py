@@ -6,7 +6,7 @@
 # Die Klasse Mpg123 kapselt den mpg123-Prozess zum Abspielen von MP3s
 #
 # Quelle: (Author: Bernhard Bablok, License: GPL3, Website: https://github.com/bablokb/pi-webradio)
-#
+# Bearbeitet: Simone Roßberg
 # -----------------------------------------------------------------------------
 
 import threading, subprocess, signal, os, shlex, re, traceback
