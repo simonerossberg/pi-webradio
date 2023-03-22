@@ -3,11 +3,8 @@
 # ----------------------------------------------------------------------------
 # Class SRWeb: serve gui and process API-requests
 #
-# Author: Bernhard Bablok
-# License: GPL3
-#
-# Website: https://github.com/bablokb/pi-webradio
-#
+# Quelle: (Author: Bernhard Bablok, License: GPL3, Website: https://github.com/bablokb/pi-webradio)
+# Bearbeitet
 # ----------------------------------------------------------------------------
 
 # --- System-Imports   -------------------------------------------------------
@@ -210,8 +207,8 @@ class WebServer(Base):
     ctx = self._flask.app_context()
     ctx.push()
 
-    self.msg("WebServer: starting the web-server in debug-mode")
-    self.msg("WebServer: listening on port %s" % self._port)
-    self.msg("WebServer: using web-root: %s" % self._web_root)
+    self.msg("WebServer: Starten des Webservers im Debug-Modus")
+    self.msg("WebServer: PORT %s" % self._port)
+    self.msg("WebServer: Web-Root: %s" % self._web_root)
     self._server.serve_forever()
-    self.msg("WebServer: finished")
+    self.msg("WebServer: Fertig")
