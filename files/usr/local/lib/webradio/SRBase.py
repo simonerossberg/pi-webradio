@@ -1,26 +1,23 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 # -----------------------------------------------------------------------------
-# Pi-Webradio: implementation of class Base
+# Pi-Webradio: Implementierung der Klasse Base
 #
-# The class Base is the root-class of all classes and implements common methods
+# Die Klasse Base ist die Mutterklasse aller Klassen und implementiert gemeinsame Methoden
 #
-# Author: Bernhard Bablok
-# License: GPL3
-#
-# Website: https://github.com/bablokb/pi-webradio
-#
+# Quelle: (Author: Bernhard Bablok, License: GPL3, Website: https://github.com/bablokb/pi-webradio)
+# Bearbeitet: Simone Roßberg
 # -----------------------------------------------------------------------------
 
 import sys, time
 
 class Base:
-  """ base class with common methods """
+  """ Base-Klasse mit gängigen Methoden """
 
-  # --- print debug messages   ------------------------------------------------
+  # --- Debug-Meldungen ausgeben   ------------------------------------------------
 
   def msg(self,text,force=False):
-    """ print debug-message """
+    """ Debug-Meldungen ausgeben """
 
     if force:
       sys.stderr.write("%s\n" % text)
@@ -28,10 +25,10 @@ class Base:
       sys.stderr.write("[DEBUG %s] %s\n" % (time.strftime("%H:%M:%S"),text))
     sys.stderr.flush()
 
-  # --- read configuration value   --------------------------------------------
+  # --- Konfigurationswert lesen   --------------------------------------------
 
   def get_value(self,parser,section,option,default):
-    """ get value of config-variables and return given default if unset """
+    """ Wert der Konfigurationsvariablen abrufen und gegebenen Standardwert zurückgeben, falls nicht gesetzt """
 
     if parser.has_section(section):
       try:
@@ -45,11 +42,11 @@ class Base:
   # --- return persistent state of this class   -------------------------------
 
   def get_persistent_state(self):
-    """ return persistent state (implemented by subclasses) """
+    """ Persistenten Zustand zurückgeben (implementiert durch Unterklassen) """
     return {}
 
   # --- set state state of this class   ---------------------------------------
 
   def set_persistent_state(self,state_map):
-    """ set state (implemented by subclasses) """
+    """ set state (implementiert durch Unterklassen) """
     pass
