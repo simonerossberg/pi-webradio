@@ -1,14 +1,11 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 # -----------------------------------------------------------------------------
-# Pi-Webradio: implementation of class Mpg123
+# Pi-Webradio: Implementierung der Klasse Mpg123
 #
-# The class Mpg123 encapsulates the mpg123-process for playing MP3s.
+# Die Klasse Mpg123 kapselt den mpg123-Prozess zum Abspielen von MP3s
 #
-# Author: Bernhard Bablok
-# License: GPL3
-#
-# Website: https://github.com/bablokb/pi-webradio
+# Quelle: (Author: Bernhard Bablok, License: GPL3, Website: https://github.com/bablokb/pi-webradio)
 #
 # -----------------------------------------------------------------------------
 
@@ -19,10 +16,10 @@ import queue, collections, time
 from webradio import Base
 
 class Mpg123(Base):
-  """ mpg123 control-object """
+  """ mpg123 Steuerobjekt """
 
   def __init__(self,app):
-    """ initialization """
+    """ Initialisierung """
 
     self._app       = app
     self._api       = app.api
@@ -38,12 +35,12 @@ class Mpg123(Base):
     self.read_config()
     self.register_apis()
 
-  # --- read configuration   --------------------------------------------------
+  # --- Konfiguration lesen   --------------------------------------------------
 
   def read_config(self):
-    """ read configuration from config-file """
+    """ Konfiguration aus Konfigurationsdatei lesen """
 
-    # section [MPG123]
+    # Abschnitt [MPG123]
     self._vol_default = int(self.get_value(self._app.parser,"MPG123",
                                        "vol_default",30))
     self._volume      = self._vol_default
@@ -52,10 +49,10 @@ class Mpg123(Base):
     self._mpg123_opts = self.get_value(self._app.parser,"MPG123",
                                        "mpg123_opts","")
 
-  # --- register APIs   ------------------------------------------------------
+  # --- Register APIs   ------------------------------------------------------
 
   def register_apis(self):
-    """ register API-functions """
+    """ Register API-Funktionen """
 
     self._api.vol_up          = self.vol_up
     self._api.vol_down        = self.vol_down
@@ -66,43 +63,43 @@ class Mpg123(Base):
     self._api.bluetooth_start = self.bluetooth_start
     self._api.bluetooth_stop = self.bluetooth_stop
 
-  # --- return persistent state of this class   -------------------------------
+  # --- gibt den persistenten Zustand dieser Klasse zurück   -------------------------------
 
   def get_persistent_state(self):
-    """ return persistent state (overrides SRBase.get_pesistent_state()) """
+    """ Persistenten Zustand zurückgeben (überschreibt SRBase.get_pesistent_state()) """
     return {
       'volume': self._volume if not self._mute else self._vol_old
       }
 
-  # --- restore persistent state of this class   ------------------------------
+  # --- den persistenten Zustand dieser Klasse wiederherstellen   ------------------------------
 
   def set_persistent_state(self,state_map):
-    """ restore persistent state (overrides SRBase.set_pesistent_state()) """
+    """ persistenten Zustand wiederherstellen (überschreibt SRBase.set_pesistent_state()) """
 
-    self.msg("Mpg123: restoring persistent state")
+    self.msg("Mpg123: persistenten Zustand wiederherstellen")
     if 'volume' in state_map:
       self._volume = state_map['volume']
     else:
       self._volume = self._vol_default
     self.msg("Mpg123: volume is: %d" % self._volume)
 
-  # --- active-state (return true if playing)   --------------------------------
+  # --- active-state (gibt beim Spielen true zurück)   --------------------------------
 
   def is_active(self):
-    """ return active (playing) state """
+    """ Rückkehr in den aktiven (spielenden) Zustand """
 
     return self._process is not None and self._process.poll() is None
 
-  # --- create player in the background in remote-mode   ----------------------
+  # --- Player im Hintergrund im Remote-Modus erstellen   ----------------------
 
   def create(self):
-    """ spawn new mpg123 process """
+    """ neuer mpg123-Prozess """
 
     args = ["mpg123","-R"]
     opts = shlex.split(self._mpg123_opts)
     args += opts
 
-    self.msg("Mpg123: starting mpg123 with args %r" % (args,))
+    self.msg("Mpg123: Starten von mpg123 mit Args %r" % (args,))
     # start process with line-buffered stdin/stdout
     self._process = subprocess.Popen(args,bufsize=1,
                                      universal_newlines=True,
@@ -114,22 +111,22 @@ class Mpg123(Base):
     self._reader_thread.start()
     self.vol_set(self._volume)
 
-  # --- play URL/file   -------------------------------------------------------
+  # --- Spielen URL/file   -------------------------------------------------------
 
   def play(self,url,last=True):
-    """ start playing, return True if a new file/url is started """
+    """ Starte die Wiedergabe, gebe True zurück, wenn eine neue Datei/URL gestartet wird """
 
     if self._process:
       if self._play:
         check_url = url if url.startswith("http") else os.path.basename(url)
-        if check_url == self._url:   # already playing
+        if check_url == self._url:   # spielt schon
           if not url.startswith("http"):
             self._op_event.clear()
             self._process.stdin.write("SAMPLE\n")
             self._op_event.wait()
           return False
-        self.stop(last=False)        # since we are about to play another file
-      self.msg("Mpg123: starting to play %s" % url)
+        self.stop(last=False)        # da wir im Begriff sind, eine andere Datei abzuspielen
+      self.msg("Mpg123: anfangen zu spielen %s" % url)
       self._last = last
       if url.startswith("http"):
         self._url   = url
@@ -145,83 +142,83 @@ class Mpg123(Base):
     else:
       return False
 
-  # --- stop playing current URL/file   ---------------------------------------
+  # --- Stoppen der Wiedergabe der aktuellen URL/Datei   ---------------------------------------
 
   def stop(self,last=True):
-    """ stop playing """
+    """ Stopt spielen """
 
     if not self._play:
       return
     if self._process:
-      self.msg("Mpg123: stopping current url/file: %s" % self._url)
+      self.msg("Mpg123: Stoppen der aktuellen Datei/url: %s" % self._url)
       self._last = last
       self._op_event.clear()
       self._process.stdin.write("STOP\n")
       self._op_event.wait()
 
-  # --- pause playing   -------------------------------------------------------
+  # --- Wiedergabe pausieren   -------------------------------------------------------
 
   def pause(self):
-    """ pause playing """
+    """ Pause """
 
     if not self._url or self._pause:
       return
     if self._process:
-      self.msg("Mpg123: pausing playback")
+      self.msg("Mpg123: Wiedergabe pausieren")
       if not self._pause:
         self._op_event.clear()
         self._process.stdin.write("PAUSE\n")
         self._op_event.wait()
 
-  # --- continue playing   ----------------------------------------------------
+  # --- Weiterspielen   ----------------------------------------------------
 
   def resume(self):
-    """ continue playing """
+    """ weiterspielen """
 
     if not self._play and not self._pause:
       return
     if self._process:
-      self.msg("Mpg123: resuming playback")
+      self.msg("Mpg123: weiterspielen")
       if self._pause:
         self._op_event.clear()
         self._process.stdin.write("PAUSE\n")
         self._op_event.wait()
 
-  # --- toggle playing   ------------------------------------------------------
+  # --- Abspielen umschalten   ------------------------------------------------------
 
   def toggle(self):
-    """ toggle playing """
+    """ Abspielen umschalten """
 
     if not self._play:
       return
     if self._process:
-      self.msg("Mpg123: toggle playback")
+      self.msg("Mpg123: Abspielen umschalten")
       self._op_event.clear()
       self._process.stdin.write("PAUSE\n")
       self._op_event.wait()
 
-  # --- stop player   ---------------------------------------------------------
+  # --- Stoppen Player   ---------------------------------------------------------
 
   def destroy(self):
-    """ destroy current player """
+    """ Zerstöre den aktuellen Player """
 
     if self._process:
-      self.msg("Mpg123: stopping mpg123 ...")
+      self.msg("Mpg123: Stoppen mpg123 ...")
       try:
         self._process.stdin.write("QUIT\n")
         self._process.wait(5)
-        self.msg("Mpg123: ... done")
+        self.msg("Mpg123: ... fertig")
       except:
         # can't do anything about it
-        self.msg("Mpg123: ... exception during destroy of mpg123")
+        self.msg("Mpg123: ... Ausnahme beim Zerstören von mpg123")
         pass
 
-  # --- process output of mpg123   --------------------------------------------
+  # --- Prozessausgabe von mpg123   --------------------------------------------
 
   def _process_stdout(self):
-    """ read mpg123-output and process it """
+    """ mpg123-Ausgabe lesen und verarbeiten """
 
-    self.msg("Mpg123: starting mpg123 reader-thread")
+    self.msg("Mpg123: Starten des mpg123 Reader-Threads")
     regex = re.compile(r".*ICY-META.*?'([^']*)';?.*\n")
     while True:
       try:
@@ -233,7 +230,7 @@ class Mpg123(Base):
         continue
       if line.startswith("@F"):
         continue
-      self.msg("Mpg123: processing line: %s" % line)
+      self.msg("Mpg123: Starten des mpg123 Reader-Threads: %s" % line)
       if line.startswith("@I ICY-META"):
         (line,_) = regex.subn(r'\1',line)
         self._api._push_event({'type': 'icy_meta',
@@ -274,57 +271,57 @@ class Mpg123(Base):
                                         'pause': self._pause}})
         self._op_event.set()
 
-    self.msg("Mpg123: stopping mpg123 reader-thread")
+    self.msg("Mpg123: mpg123 Reader-Thread stoppen")
 
-  # --- increase volume   ----------------------------------------------------
+  # --- Lautstärke erhöhen   ----------------------------------------------------
 
   def vol_up(self,by=None):
-    """ increase volume by amount or the pre-configured value """
+    """ Erhöhung der Lautstärke um den Betrag oder den vorkonfigurierten Wert """
 
     if by:
-      amount = max(0,int(by))     # only accept positive values
+      amount = max(0,int(by))     # nur positive Werte
     else:
-      amount = self._vol_delta        # use default
+      amount = self._vol_delta        # verwende den Standard
     self._volume = min(100,self._volume + amount)
     return self.vol_set(self._volume)
 
-  # --- decrease volume   ----------------------------------------------------
+  # --- Lautstärke verringern   ----------------------------------------------------
 
   def vol_down(self,by=None):
-    """ decrease volume by amount or the pre-configured value """
+    """ Verringern der Lautstärke um den Betrag oder den vorkonfigurierten Wert """
 
     if by:
-      amount = max(0,int(amount))     # only accept positive values
+      amount = max(0,int(amount))     # nur positive Werte
     else:
-      amount = self._vol_delta        # use default
+      amount = self._vol_delta        # verwende den Standard
     self._volume = max(0,self._volume - amount)
     return self.vol_set(self._volume)
 
-  # --- set volume   ---------------------------------------------------------
+  # --- Lautstärke einstellen   ---------------------------------------------------------
 
   def vol_set(self,val):
-    """ set volume """
+    """ Lautstärke einstellen """
 
     val = min(max(0,int(val)),100)
     self._volume = val
     if self._process:
-      self.msg("Mpg123: setting current volume to: %d%%" % val)
+      self.msg("Mpg123: Einstellen der aktuellen Lautstärke auf: %d%%" % val)
       self._process.stdin.write("VOLUME %d\n" % val)
       self._api._push_event({'type': 'vol_set',
                               'value': self._volume})
       return self._volume
 
-  # --- mute on  -------------------------------------------------------------
+  # --- stumm schalten  -------------------------------------------------------------
 
   def vol_mute_on(self):
-    """ activate mute (i.e. set volume to zero) """
+    """ Stummschalten (d.h. Lautstärke auf Null stellen) """
 
     if not self._mute:
       self._vol_old = self._volume
       self._mute    = True
       return self.vol_set(0)
 
-  # --- mute off  ------------------------------------------------------------
+  # --- stumm aus  ------------------------------------------------------------
 
   def vol_mute_off(self):
     """ deactivate mute (i.e. set volume to last value) """
@@ -333,10 +330,10 @@ class Mpg123(Base):
       self._mute = False
       return self.vol_set(self._vol_old)
 
-  # --- mute toggle   --------------------------------------------------------
+  # --- stumm schalten   --------------------------------------------------------
 
   def vol_mute_toggle(self):
-    """ toggle mute """
+    """ stumm schalten """
 
     if self._mute:
       return self.vol_mute_off()
@@ -346,12 +343,12 @@ class Mpg123(Base):
   # --- start Bluetooth   ------------------------------------------------------- 
   
   def bluetooth_start(self):
-    """ start playing """
+    """ startet play """
     self.msg("Bluetooth start")
 
     
   # --- stop Bluetooth   -------------------------------------------------------
 
   def bluetooth_stop(self):
-    """ stop playing (play->stop, pause->stop)"""
+    """ stopt play (play->stop, pause->stop)"""
     self.msg("Bluetooth stop")
