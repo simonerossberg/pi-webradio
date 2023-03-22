@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 # ----------------------------------------------------------------------------
-# Pi-Webradio: implementation of class Api
+# Pi-Webradio: Implementierung der Klasse API
 #
-# Collect all API-functions
+# Sammelung alle API-Funktionen
 #
 # Quelle: (Author: Bernhard Bablok, License: GPL3, Website: https://github.com/bablokb/pi-webradio)
 # Bearbeitet: Simone Roßberg
@@ -12,30 +12,30 @@
 from webradio import Base
 
 class Api(Base):
-  """ The class holds References to all API-functions """
+  """ Die Klasse enthält Verweise auf alle API-Funktionen """
 
   def __init__(self,app):
-    """ initialization """
+    """ Initialisierung """
 
     self._app          = app
     self.debug         = app.debug
 
-  # --- execute API by name   ------------------------------------------------
+  # --- API nach Namen ausführen   ------------------------------------------------
 
   def _exec(self,name,**args):
-    """ execute an API by name """
+    """ API nach Namen ausführen """
 
     if hasattr(self,name):
-      self.msg("executing: %s(%r)" % (name,dict(**args)))
+      self.msg("ausführen: %s(%r)" % (name,dict(**args)))
       return getattr(self,name)(**args)
     else:
-      self.msg("unknown API-method %s" % name)
-      raise NotImplementedError("API %s not implemented" % name)
+      self.msg("unbekannte API-Methode %s" % name)
+      raise NotImplementedError("API %s nicht implementiert" % name)
 
-  # --- return list of APIs   ------------------------------------------------
+  # --- Liste der APIs zurückgeben   ------------------------------------------------
 
   def get_api_list(self):
-    """ return list of APIs """
+    """ Liste der APIs zurückgeben """
 
     return [func for func in dir(self)
             if callable(getattr(self, func)) and not func.startswith("_")
