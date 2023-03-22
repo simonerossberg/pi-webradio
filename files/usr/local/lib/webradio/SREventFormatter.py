@@ -1,20 +1,17 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 # -----------------------------------------------------------------------------
-# Pi-Webradio: implementation of class EventFormatter
+# Pi-Webradio: Implementierung der Klasse EventFormatter
 #
-# The class EventFormatter converts events to a printable form.
-# TODO: support i18n
+# Die Klasse EventFormatter wandelt Ereignisse in eine druckbare Form um
+# 
 #
-# Author: Bernhard Bablok
-# License: GPL3
-#
-# Website: https://github.com/bablokb/pi-webradio
-#
+# Quelle: (Author: Bernhard Bablok, License: GPL3, Website: https://github.com/bablokb/pi-webradio)
+# Bearbeitet: Simone Roßberg
 # -----------------------------------------------------------------------------
 
 class EventFormatter(object):
-  """ format events """
+  """ Veranstaltungen formatieren """
 
   # --- format map: type:format   ---------------------------------------------
   _FMT_MAP = {
@@ -34,10 +31,10 @@ class EventFormatter(object):
     'dir_select': 'current directory: {value}'
     }
 
-  # --- format event   --------------------------------------------------------
+  # --- Event formatieren   --------------------------------------------------------
 
   def format(self,event):
-    """ format given event """
+    """ gegebenes Ereignis formatieren """
 
     key = event['type']
     if key in EventFormatter._FMT_MAP:
