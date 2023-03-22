@@ -666,10 +666,6 @@ function btStop() {
   $.get("/api/bluetooth_stop",
         function() {
           showMsg("Bluetooth stopping ...",2000);
-    wr_state.mode = 'player';
-  // clear info-box
-  $('#wr_infos').empty();
-
   // tell server to start playing
   $.getJSON('/api/player_play_file',data,
     function(result) {
