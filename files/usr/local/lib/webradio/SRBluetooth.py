@@ -1,15 +1,13 @@
 import threading, subprocess, signal, os, shlex, re, traceback 
 import bluetooth, pyatv
-# from threading import Thread
-# import queue, collections, time
 
 from webradio import Base
 
 class Bluetooth(Base):
-  # """ bluetooth control-object """
+   """ Bluetooth-Steuerobjekt """
 
   def __init__(self,app):
-    """ initialization """
+    """ Initialisierung """
 
     self._app       = app
     self._api       = app.api
@@ -19,10 +17,10 @@ class Bluetooth(Base):
     self.read_config()
     self.register_apis()
 
-  # --- read configuration   --------------------------------------------------
+  # --- Konfiguration lesen  --------------------------------------------------
 
   def read_config(self):
-    """ read configuration from config-file """
+    """ Konfiguration aus config-fil lesene """
 
     # # section [MPG123]
     # self._vol_default = int(self.get_value(self._app.parser,"MPG123",
@@ -34,29 +32,29 @@ class Bluetooth(Base):
     #                                    "mpg123_opts","")
     pass
 
-  # --- register APIs   ------------------------------------------------------
+  # --- Register APIs   ------------------------------------------------------
 
   def register_apis(self):
-    """ register API-functions """
+    """ Register API-Funktionen """
 
     self._api.bluetooth_start = self.bluetooth_start
     self._api.bluetooth_stop  = self.bluetooth_stop
 
-    self.msg("Bluetooth APIs registered")
+    self.msg("Bluetooth APIs eingetragen")
 
-  # --- return persistent state of this class   -------------------------------
+  # --- gibt den persistenten Zustand dieser Klasse zurück   -------------------------------
 
   def get_persistent_state(self):
-    # """ return persistent state (overrides SRBase.get_pesistent_state()) """
+    # """ persistenten Zustand zurückgeben (overrides SRBase.get_pesistent_state()) """
     # return {
     #   'volume': self._volume if not self._mute else self._vol_old
     #   }
     pass
 
-  # --- restore persistent state of this class   ------------------------------
+  # --- den persistenten Zustand dieser Klasse wiederherstellen   ------------------------------
 
   def set_persistent_state(self,state_map):
-    # """ restore persistent state (overrides SRBase.set_pesistent_state()) """
+    # """ persistenten Zustand wiederherstellen (overrides SRBase.set_pesistent_state()) """
 
     # self.msg("Mpg123: restoring persistent state")
     # if 'volume' in state_map:
@@ -67,20 +65,20 @@ class Bluetooth(Base):
     pass
 
   
-  # --- start bluetooth   ----------------------------------------------------
+  # --- Bluetooth Starten   ----------------------------------------------------
 
   def bluetooth_start(self):
-    """ start bluetooth and Airplay """
-    self.msg("Starting Bluetooth or Airplay...")
+    """ Start Bluetooth & Airplay """
+    self.msg("Starte Bluetooth & Airplay...")
     
-    # Search for AirPlay devices on the network
+    # Suchen Sie im Netzwerk nach AirPlay-Geräten
     devices = pyatv.scan(timeout=5)
 
-    # Connect to the first device found
+    # Verbindung mit dem ersten gefundenen Gerät
     device = devices[0]
     airplay = device.airplay
     
-    target_name = "Simone" # name of Bluetooth speaker
+    target_name = "Raspberry Pi" # Name Bluetoothlautsprecher
     target_address = None
 
     nearby_devices = bluetooth.discover_devices()
@@ -90,24 +88,24 @@ class Bluetooth(Base):
          break
 
     if target_address is not None:
-      print("Found target device with address:", target_address)
+      print("Zielgerät mit Adresse gefunden:", target_address)
     else:
-      print("Could not find target device.")
+      print("Zielgerät konnte nicht gefunden werden")
 
-    # Connect to the target device
+    #Verbindug mit Zielgerät
     sock = bluetooth.BluetoothSocket(bluetooth.RFCOMM)
-    sock.connect((target_address, 1)) # channel number of device
+    sock.connect((target_address, 1)) #Kanalnummer des Geräts
    
 
-  # --- stop bluetooth   ----------------------------------------------------
+  # --- Stop Bluetooth & Airplay   ----------------------------------------------------
 
   def bluetooth_stop(self):
-    """ stop bluetooth """
-    self.msg("Stopping Bluetooth or Airplay...")
+    """ Stop Bluetooth & Airplay """
+    self.msg("Stop Bluetooth & Airplay...")
     airplay.stop()
     
-    # Send the "stop" command to the Bluetooth device
+    # Senden „Stopp“-Befehl an das Bluetooth-Gerät
     sock.send("STOP")
-    # Close the Bluetooth connection
+    # Schließen der Bluetooth-Verbindung
     sock.close()
    
