@@ -1,26 +1,23 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 # ----------------------------------------------------------------------------
-# Pi-Webradio: implementation of class KeyController
+# Pi-Webradio: Umsetzung der Klasse KeyController
 #
-# The class KeyController maps key-events to api-calls
+# Die Klasse KeyController bildet Tastenereignisse auf API-Aufrufe ab
 #
-# Author: Bernhard Bablok
-# License: GPL3
-#
-# Website: https://github.com/bablokb/pi-webradio
-#
+# Quelle: (Author: Bernhard Bablok, License: GPL3, Website: https://github.com/bablokb/pi-webradio)
+# Bearbeitet; Simone Roßberg
 # ----------------------------------------------------------------------------
 
 import os, sys, evdev, select, tty, termios
 from webradio import Base
 
 class KeyController(Base):
-  """ map key-events to api-calls """
+  """ Schlüsselereignisse API-Aufrufen zuordnen """
 
-  TIMEOUT = 5             # check stop-event every x seconds
+  TIMEOUT = 5             # check stop-event alle 5 Sekunden
 
-  # --- builtin-keymaps   ----------------------------------------------------
+  # --- eingebaute Tastaturbelegung   ----------------------------------------------------
 
   KEYMAP_RADIO_EVENT = {
     "KEY_1":     ["radio_play_channel", "nr=1"],
@@ -83,19 +80,19 @@ class KeyController(Base):
   KEY_SPECIAL = ['KEY_LEFTCTRL','KEY_LEFTALT','KEY_LEFTSHIFT',
                  'KEY_RIGHTCTRL','KEY_RIGHTALT','KEY_RIGHTSHIFT']
 
-  # --- constructor   --------------------------------------------------------
+  # --- Konstrukteur   --------------------------------------------------------
 
   def __init__(self,stop,debug=False):
-    """ constructor """
+    """ Konstrukteur """
 
     self._stop    = stop
     self.debug    = debug
 
-    # test for terminal
+    # Test für Terminal
     self._have_term = False
     try:
       _ = os.tcgetpgrp(sys.stdin.fileno())
-      self.msg("KeyController: have terminal")
+      self.msg("KeyController: hat Terminal")
       self._have_term = True
       self._kmap    = KeyController.KEYMAP_RADIO_TERM
     except:
@@ -104,52 +101,52 @@ class KeyController(Base):
   # --- yield api from key-event   -------------------------------------------
 
   def _api_from_key_event(self):
-    """ monitor key-events and yield mapped API-name """
+    """ Schlüsselereignisse überwachen und zugeordneten API-Namen liefern """
 
     devices = [evdev.InputDevice(fn) for fn in evdev.list_devices()]
     if not len(devices):
-      self.msg("no input devices available")
+      self.msg("keine Eingabegeräte vorhanden")
       return
     devices = {dev.fd: dev for dev in devices}
 
-    special = 0                    # to ignore combinations with special keys
+    special = 0                    # Kombinationen mit Sondertasten zu ignorieren
     while True:
       fds, _1, _2 = select.select(devices,[],[],KeyController.TIMEOUT)
       if self._stop.is_set():
         break
       elif not len(fds):
-        # timeout condition, try again
+        # Timeout-Bedingung, versuchen Sie es erneut
         continue
       for fd in fds:
         for event in devices[fd].read():
           event = evdev.util.categorize(event)
           if not isinstance(event, evdev.events.KeyEvent):
             continue
-          self.msg("KeyController: processing %s (%d)" %
+          self.msg("KeyController: wird bearbeitet %s (%d)" %
                    (event.keycode,event.keystate))
           if event.keystate == event.key_down:
             if event.keycode in KeyController.KEY_SPECIAL:
               special += 1
               continue
             elif special > 0:
-              self.msg("KeyController: ignoring %s" % event.keycode)
+  wird bearbeitet  self.msg("KeyController: ignorieren %s" % event.keycode)
               continue
             if event.keycode in self._kmap:
-              # key is mapped, yield api-name
-              self.msg("KeyController: mapping %s to %s" %
+              #Schlüssel ist zugeordnet, ergibt API-Name
+              self.msg("KeyController: zuordnen %s to %s" %
                        (event.keycode,self._kmap[event.keycode]))
               yield self._kmap[event.keycode]
             else:
-              # key is not mapped, ignore
-              self.msg("KeyController: ignoring %s" % event.keycode)
+              # Schlüssel ist nicht zugeordnet, ignorieren
+              self.msg("KeyController: ignorieren %s" % event.keycode)
           elif event.keystate == event.key_up:
             if event.keycode in KeyController.KEY_SPECIAL:
               special = max(0,special-1)
 
-  # --- yield api from key-event   -------------------------------------------
+  # --- Yield api von key-event   -------------------------------------------
 
   def _api_from_term(self):
-    """ monitor chars from terminal and yield mapped API-name """
+    """ Zeichen vom Terminal überwachen und zugeordneten API-Namen liefern """
 
     old_settings = termios.tcgetattr(sys.stdin)
     tty.setcbreak(sys.stdin.fileno())
@@ -160,36 +157,36 @@ class KeyController(Base):
         if self._stop.is_set():
           break
         elif not len(fds):
-          # timeout condition, try again
+          # Timeout-Bedingung, versuchen Sie es erneut
           continue
 
         keycode = os.read(sys.stdin.fileno(), 3).hex()
-        self.msg("KeyController: processing %s" % keycode)
+        self.msg("KeyController: wird bearbeitet %s" % keycode)
         if keycode in self._kmap:
           # key is mapped, yield api-name
-          self.msg("KeyController: mapping %s to %s" %
+          self.msg("KeyController: zuordnen %s to %s" %
                    (keycode,self._kmap[keycode]))
           yield self._kmap[keycode]
         else:
-          # key is not mapped, ignore
-          self.msg("KeyController: ignoring %s" % keycode)
+          # Schlüssel ist nicht zugeordnet, ignorieren
+          self.msg("KeyController: ignorieren %s" % keycode)
     finally:
       termios.tcsetattr(sys.stdin, termios.TCSADRAIN, old_settings)
 
-  # --- yield api from key-event   -------------------------------------------
+  # --- Yield api von key-event   -------------------------------------------
 
   def api_from_key(self):
-    """ monitor key-events and yield mapped API-name """
+    """ Schlüsselereignisse überwachen und zugeordneten API-Namen liefern """
 
     if self._have_term:
       return self._api_from_term()
     else:
       return self._api_from_key_event()
 
-  # --- print key-mapping   --------------------------------------------------
+  # --- Tastenbelegung ausgeben   --------------------------------------------------
 
   def print_mapping(self):
-    """ print key-mapping """
+    """ Tastenbelegung ausgeben """
 
     print("key-mapping:")
     for key,value in KeyController.KEYMAP_RADIO_EVENT.items():
