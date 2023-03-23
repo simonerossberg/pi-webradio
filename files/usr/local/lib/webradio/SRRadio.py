@@ -17,27 +17,27 @@ import threading, signal, subprocess, traceback
 from webradio import *
 
 class Radio(Base):
-  """ Radio-controller """
+  """ Radiosteuerung """
 
   def __init__(self,app):
-    """ initialization """
+    """ Initialisierung """
 
     self._app          = app
     self._api          = app.api
     self.debug         = app.debug
     self._backend      = app.backend
 
-    self._channel_nr   = 0                  # current channel number
-    self._last_channel = 0                  # last active channel number
+    self._channel_nr   = 0                  # aktuelle Kanalnummer
+    self._last_channel = 0                  # letzte aktive Kanalnummer
     self.stop_event    = app.stop_event
     self.read_config()
     self.register_apis()
     self.read_channels()
 
-  # --- read configuration   --------------------------------------------------
+  # --- Konfiguration lesen   --------------------------------------------------
 
   def read_config(self):
-    """ read configuration from config-file """
+    """ Konfiguration aus Konfigurationsdatei lesen """
 
     # section [GLOBAL]
     default_path        = "files/etc/pi-webradio.channels"
@@ -50,10 +50,10 @@ class Radio(Base):
     self._web_root  = self.get_value(self._app.parser,"WEB","web_root",
                                          default_web_root)
 
-  # --- register APIs   ------------------------------------------------------
+  # --- Register APIs   ------------------------------------------------------
 
   def register_apis(self):
-    """ register API-functions """
+    """ Register API-Funktionen """
 
     self._api.radio_on             = self.radio_on
     self._api.radio_off            = self.radio_off
@@ -66,34 +66,34 @@ class Radio(Base):
     self._api.radio_play_next      = self.radio_play_next
     self._api.radio_play_prev      = self.radio_play_prev
 
-  # --- return persistent state of this class   -------------------------------
+  # --- gibt den persistenten Zustand dieser Klasse zurück   -------------------------------
 
   def get_persistent_state(self):
-    """ return persistent state (overrides SRBase.get_pesistent_state()) """
+    """ Persistenten Zustand zurückgeben (überschreibt SRBase.get_pesistent_state()) """
     return {
       'channel_nr': self._last_channel
       }
 
-  # --- restore persistent state of this class   ------------------------------
+  # --- den persistenten Zustand dieser Klasse wiederherstellen   ------------------------------
 
   def set_persistent_state(self,state_map):
-    """ restore persistent state (overrides SRBase.set_pesistent_state()) """
+    """ persistenten Zustand wiederherstellen (überschreibt SRBase.set_pesistent_state()) """
 
-    self.msg("Radio: restoring persistent state")
+    self.msg("Radio: dauerhaften Zustand wiederherstellen")
     if 'channel_nr' in state_map:
       self._last_channel = state_map['channel_nr']
 
     self._api.update_state(section="radio",key="channel_nr",
                            value=self._last_channel,publish=False)
 
-  # --- read channels   -------------------------------------------------------
+  # --- Kanäle lesen   -------------------------------------------------------
 
   def read_channels(self):
-    """ read channels into a list """
+    """ Kanäle in eine Liste einlesen """
 
     self._channels = []
     try:
-      self.msg("Radio: Loading channels from %s" % self._channel_file)
+      self.msg("Radio: Laden von Kanälen von %s" % self._channel_file)
       f = open(self._channel_file,"r")
       self._channels = json.load(f)
       f.close()
@@ -107,14 +107,14 @@ class Radio(Base):
           channel['logo'] = None
         nr += 1
     except:
-      self.msg("Radio: Loading channels failed")
+      self.msg("Radio: Das Laden von Kanälen ist fehlgeschlagen")
       if self.debug:
         traceback.print_exc()
 
-  # --- get channel info   ----------------------------------------------------
+  # --- Kanalinfo abrufen   ----------------------------------------------------
 
   def radio_get_channel(self,nr=0):
-    """ return info-dict {name,url,logo} for channel nr """
+    """ return info-dict {name,url,logo} für Kanal-Nr """
 
     try:
       nr = int(nr)
@@ -128,14 +128,14 @@ class Radio(Base):
 
     return dict(self._channels[nr-1])
 
-  # --- return channel-list   ------------------------------------------------
+  # --- Senderliste zurückgeben   ------------------------------------------------
 
   def radio_get_channels(self):
-    """ return complete channel-list """
+    """ vollständige Kanalliste zurückgeben """
 
     return [dict(c) for c in self._channels]
 
-  # --- play given channel   --------------------------------------------------
+  # --- gegebenen Kanal spielen   --------------------------------------------------
 
   def radio_play_channel(self,nr=0):
     """ switch to given channel """
