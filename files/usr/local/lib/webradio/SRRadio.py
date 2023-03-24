@@ -1,9 +1,9 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 # -----------------------------------------------------------------------------
-# Pi-Webradio: implementation of class Radio
+# Pi-Webradio: Implementierung der Klasse Radio
 #
-# The class Radio implements the core functionality of the web-radio.
+# Die Klasse Radio implementiert die Kernfunktionalität des Webradios.
 #
 # (Quelle: Author: Bernhard Bablok, License: GPL3, Website: https://github.com/bablokb/pi-webradio)
 #
@@ -138,13 +138,13 @@ class Radio(Base):
   # --- gegebenen Kanal spielen   --------------------------------------------------
 
   def radio_play_channel(self,nr=0):
-    """ switch to given channel """
+    """ Wechseln zum angegebenen Kanal """
 
     channel = self.radio_get_channel(int(nr))
     nr      = channel['nr']
-    self.msg("Radio: start playing channel %d (%s)" % (nr,channel['name']))
+    self.msg("Radio: Starten der Kanalwiedergabe %d (%s)" % (nr,channel['name']))
 
-    # check if we have to do anything
+    # überprüfen, ob wir etwas tun müssen
     if self._backend.play(channel['url']):
       self._api.update_state(section="radio",key="channel_nr",
                              value=channel,publish=False)
@@ -152,16 +152,16 @@ class Radio(Base):
       self._channel_nr   = nr
       self._last_channel = self._channel_nr
     else:
-      self.msg("Radio: already on channel %d" % nr)
-      # theoretically we could also have lost our backend
+      self.msg("Radio: bereits auf Kanal %d" % nr)
+      # theoretisch hätten wir auch unser Backend verlieren können
     return channel
 
-  # --- switch to next channel   ----------------------------------------------
+  # --- zum nächsten Kanal wechseln   ----------------------------------------------
 
   def radio_play_next(self):
-    """ switch to next channel """
+    """ zum nächsten Kanal wechseln """
 
-    self.msg("Radio: switch to next channel")
+    self.msg("Radio: zum nächsten Kanal wechseln")
     if self._channel_nr == 0:
       return self.radio_play_channel(0)
     elif self._channel_nr == len(self._channels):
@@ -169,13 +169,13 @@ class Radio(Base):
     else:
       return self.radio_play_channel(1+self._channel_nr)
 
-  # --- switch to previous channel   ------------------------------------------
+  # --- zum vorherigen Kanal wechseln   ------------------------------------------
 
 
   def radio_play_prev(self):
-    """ switch to previous channel """
+    """ zum vorherigen Kanal wechseln """
 
-    self.msg("Radio: switch to previous channel")
+    self.msg("Radio: zum vorherigen Kanal wechseln")
     if self._channel_nr == 0:
       return self.radio_play_channel(0)
     if self._channel_nr == 1:
@@ -183,46 +183,46 @@ class Radio(Base):
     else:
       return self.radio_play_channel(self._channel_nr-1)
 
-  # --- turn radio off   ------------------------------------------------------
+  # --- Radio ausschalten   ------------------------------------------------------
 
   def radio_off(self):
-    """ turn radio off """
+    """ Radio ausschalten """
 
-    self.msg("Radio: turning radio off")
+    self.msg("Radio: ausschalten")
     self._channel_nr = 0
     self._backend.stop()
 
-  # --- turn radio on   -------------------------------------------------------
+  # --- Radio anschalten   -------------------------------------------------------
 
   def radio_on(self):
-    """ turn radio on """
+    """ Radio anschalten """
 
     if self._channel_nr == 0:
-      self.msg("Radio: turning radio on")
+      self.msg("Radio: Radio anschalten")
       self.radio_play_channel()
     else:
-      self.msg("Radio: ignoring command, radio already on")
+      self.msg("Radio: Befehl ignorieren, Radio bereits an")
 
-  # --- pause radio   ---------------------------------------------------------
+  # --- Radio pausieren   ---------------------------------------------------------
 
   def radio_pause(self):
-    """ pause playing """
+    """ Radio pausieren """
 
-    self.msg("Radio: pause playing")
+    self.msg("Radio: pausieren")
     self._backend.pause()
 
-  # --- pause radio   ---------------------------------------------------------
+  # --- Radio weiterspielen  ---------------------------------------------------------
 
   def radio_resume(self):
-    """ resume playing """
+    """ spielen weiter """
 
-    self.msg("Radio: resume playing")
+    self.msg("Radio: weiterspielen")
     self._backend.resume()
 
-  # --- toggle radio state   --------------------------------------------------
+  # --- Radiostatus umschalten   --------------------------------------------------
 
   def radio_toggle(self):
-    """ toggle playing """
+    """ Radiostatus umschalten """
 
-    self.msg("Radio: toggle playing")
+    self.msg("Radio: Abspielen umschalten")
     self._backend.toggle()
