@@ -1,14 +1,12 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 # ----------------------------------------------------------------------------
-# Pi-Webradio: implementation of class RadioClient
+# Pi-Webradio: Implementierung der Klasse RadioClient
 #
-# The class RadioClient implements a simple python-client for the webradio-api.
+# Die Klasse RadioClient implementiert einen einfachen Python-Client für die Webradio-API.
 #
-# Author: Bernhard Bablok
-# License: GPL3
-#
-# Website: https://github.com/bablokb/pi-webradio
+# Quelle: (Author: Bernhard Bablok, License: GPL3, Website: https://github.com/bablokb/pi-webradio)
+# Bearbeitet: Simone Roßberg
 #
 # ----------------------------------------------------------------------------
 
@@ -19,12 +17,12 @@ import http.client as httplib
 from webradio import Base
 
 class RadioClient(Base):
-  """ python-client for the webradio-api """
+  """ Python-Client für die Webradio-API """
 
-  # --- constructor   --------------------------------------------------------
+  # --- Konstrukteur  --------------------------------------------------------
 
   def __init__(self,host,port,debug=False,timeout=10):
-    """ constructor """
+    """ Konstrukteur """
 
     self._host      = host
     self._port      = port
@@ -35,20 +33,20 @@ class RadioClient(Base):
     self._have_ev   = False
     self._api_list  = None
 
-  # --- close request object   -----------------------------------------------
+  # --- Anforderungsobjekt schließen   -----------------------------------------------
 
   def close(self):
-    """ close internal request object """
+    """ internes Anforderungsobjekt schließen """
 
     self._request.close()
     self._stop.set()
     if self._sseclient:
       self._sseclient.close()
 
-  # --- execute request   ----------------------------------------------------
+  # --- Anfrage ausführen   ----------------------------------------------------
 
   def exec(self,api,params=None,close=False):
-    """ execute api with given parameters """
+    """ API mit den angegebenen Parametern ausführen """
 
     if params and len(params):
       qstring = urllib.parse.urlencode(params,quote_via=urllib.parse.quote)
@@ -56,7 +54,7 @@ class RadioClient(Base):
     else:
       url = '/api/'+api
 
-    # send, get request and parse response
+    # Senden, Abrufen und Analysieren der Antwort
     try:
       self._request.request("GET",url)
       response = self._request.getresponse()
@@ -71,17 +69,17 @@ class RadioClient(Base):
 
     return data
 
-  # --- return stop-event   --------------------------------------------------
+  # --- Rückgabe-Stopp-Ereignis   --------------------------------------------------
 
   def get_stop_event(self):
-    """ return stop event """
+    """ Rückgabe-Stopp-Ereignis """
 
     return self._stop
 
-  # --- set up SSE and return generator   ------------------------------------
+  # --- SSE einrichten und Generator zurückgeben  ------------------------------------
 
   def get_events(self):
-    """ set up SSE client and return event-queue """
+    """ Richten Sie den SSE-Client ein und geben Sie die Ereigniswarteschlange zurück """
 
     url      = 'http://{0}:{1}/api/get_events'.format(self._host,self._port)
     headers  = {'Accept': 'text/event-stream'}
@@ -91,34 +89,34 @@ class RadioClient(Base):
       self._sseclient = sseclient.SSEClient(response)
       return self._sseclient.events()
     except Exception as ex:
-      self.msg("RadioClient: exception: %s" % ex)
+      self.msg("RadioClient: Ausnahme: %s" % ex)
       return None
 
-  # --- query API-list   -----------------------------------------------------
+  # --- API-Liste abfragen  -----------------------------------------------------
 
   def get_api_list(self):
-    """ query API list """
+    """ API-Liste abfragen """
 
     if self._api_list:
       return self._api_list
     else:
       _1,_2,apis = self.exec("get_api_list")
-      self.msg("RadioClient: API-list: %r" % (apis,))
+      self.msg("RadioClient: API-Liste: %r" % (apis,))
       if apis:
         self._api_list = json.loads(apis)
         return self._api_list
       else:
         return ""
 
-  # --- process events   -----------------------------------------------------
+  # --- Ereignisse verarbeiten   -----------------------------------------------------
 
   def _process_events(self,callback):
-    """ process events """
+    """ Ereignisse verarbeiten """
 
     try:
       while True and not self._stop.is_set():
         events = self.get_events()
-        self.msg("RadioClient: events: %r" % (events,))
+        self.msg("RadioClient: Ereignis: %r" % (events,))
         if not events:
           time.sleep(3)
           continue
@@ -131,14 +129,14 @@ class RadioClient(Base):
     except:
       pass
 
-  # --- start event processing   ---------------------------------------------
+  # --- Ereignisverarbeitung starten  ---------------------------------------------
 
   def start_event_processing(self,callback=None):
-    """ create and start event-processing """
+    """ Ereignisverarbeitung erstellen und starten """
 
     threading.Thread(target=self._process_events,args=(callback,)).start()
     while not self._have_ev:
-      # no events yet from server, so wait
+      # noch keine Ereignisse vom Server, also warten
       time.sleep(0.1)
-    self.msg("RadioClient: event-processing activated")
+    self.msg("RadioClient: Ereignisverarbeitung aktiviert")
     return self._stop
