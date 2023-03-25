@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 # -*- coding: utf-8 -*-
 # ----------------------------------------------------------------------------
-# Main application program for the pi-webradio.
+# Hauptanwendungsprogramm für das Pi-webradio
 #
-# This program starts the application either in synchronous mode or in
-# server mode. The latter is usually done from a systemd-service.
-# Synchronous mode is for listing channels, direct recording and direct
-# playing. Note that direct playing does not allow any interaction, so
-# this feature is mainly useful for development and debugging.
+# Dieses Programm startet die Anwendung entweder im synchronen Modus oder in
+# Servermodus. Letzteres wird normalerweise von einem systemd-Dienst ausgeführt.
+# Der synchrone Modus dient zum Auflisten von Kanälen, direkter Aufnahme und direkt
+# spielen. Beachten Sie, dass direktes Spielen keine Interaktion zulässt, also
+# Diese Funktion ist hauptsächlich für die Entwicklung und das Debugging nützlich.
 #
 #
 # ----------------------------------------------------------------------------
@@ -15,22 +15,22 @@
 import locale, os, sys, signal, queue, threading
 from   argparse import ArgumentParser
 
-# --- application imports   --------------------------------------------------
+# --- Anwendungsimporte   --------------------------------------------------
 
 sys.path.append(os.path.join(
   os.path.dirname(sys.argv[0]),"../lib"))
 
 from webradio import *
 
-# --- helper class for options   --------------------------------------------
+# --- Hilfsklasse für Optionen   --------------------------------------------
 
 class Options(object):
   pass
 
-# --- cmdline-parser   ------------------------------------------------------
+# --- Komandozeile-Parser   ------------------------------------------------------
 
 def get_parser():
-  """ configure cmdline-parser """
+  """ konfigurieren Komandozeile-Parser """
 
   parser = ArgumentParser(add_help=False,description='Pi-Webradio')
 
@@ -65,17 +65,17 @@ def get_parser():
     default=0, help='duration of recording')
   return parser
 
-# --- validate and fix options   ---------------------------------------------
+# --- Optionen validieren und korrigieren   ---------------------------------------------
 
 def check_options(options):
-  """ validate and fix options """
+  """ Optionen validieren und korrigieren """
 
-  # record needs a channel number
+  # record benötigt eine Kanalnummer
   if options.do_record and not options.channel:
     print("[ERROR] record-option (-r) needs channel nummber as argument")
     sys.exit(3)
 
-# --- process events   -------------------------------------------------------
+# --- Ereignisse verarbeiten   -------------------------------------------------------
 
 def process_events(app,options,queue):
   while True:
@@ -90,20 +90,20 @@ def process_events(app,options,queue):
         break
     else:
       break
-  app.msg("pi-webradio: finished processing events")
+  app.msg("pi-webradio: abgeschlossene Verarbeitungsereignisse")
   try:
     os.kill(os.getpid(), signal.SIGTERM)
   except:
     pass
 
-# --- main program   ----------------------------------------------------------
+# --- Hauptprogramm   ----------------------------------------------------------
 
 if __name__ == '__main__':
 
-  # set local to default from environment
+  # Lokal von der Umgebung auf Standard setzen
   locale.setlocale(locale.LC_ALL, '')
 
-  # parse commandline-arguments
+  # Befehlszeilenargumente parsen
   opt_parser     = get_parser()
   options        = opt_parser.parse_args(namespace=Options)
   options.pgm_dir = os.path.dirname(os.path.abspath(__file__))
@@ -111,7 +111,7 @@ if __name__ == '__main__':
 
   app = WebRadio(options)
 
-  # setup signal-handler
+  # Signal-Handler einrichten
   signal.signal(signal.SIGTERM, app.signal_handler)
   signal.signal(signal.SIGINT,  app.signal_handler)
 
@@ -133,7 +133,7 @@ if __name__ == '__main__':
         nr = int(options.channel)
         app.api.radio_play_channel(nr)
       except ValueError:
-        app.api.player_play_file(options.channel) # assume argument is a filename
+        app.api.player_play_file(options.channel) # davon ausgehen, dass das Argument ein Dateiname ist
       signal.pause()
     else:
       app.run()
