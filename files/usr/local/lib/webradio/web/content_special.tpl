@@ -1,14 +1,11 @@
 <!--
 # ----------------------------------------------------------------------------
-# Web-interface for pi-webradio.
+# Ausschaltmenü für Web-interface von Radio.
 #
-# This file defines the content page for special actions (e.g. reboot)
+# Diese Datei definiert die Inhaltsseite für spezielle Aktionen (z. B. Neustart)
 #
-# Author: Bernhard Bablok
-# License: GPL3
-#
-# Website: https://github.com/bablokb/pi-webradio
-#
+# Quelle: (Author: Bernhard Bablok, License: GPL3, Website: https://github.com/bablokb/pi-webradio)
+# Bearbeitet : Simone Roßberg
 # ----------------------------------------------------------------------------
 -->
 
