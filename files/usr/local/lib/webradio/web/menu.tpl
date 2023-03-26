@@ -1,6 +1,6 @@
 <!--
 # ----------------------------------------------------------------------------
-# Web-interface für Radio.
+# linkes Menü für Web-interface Radio.
 #
 # Navigations-Menü
 #
