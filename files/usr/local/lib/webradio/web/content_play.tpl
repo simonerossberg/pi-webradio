@@ -7,8 +7,8 @@
 -->
 
 <div id="tab_play" style="height: inherit; display: none" class="content_area">
-  <div class="play">                   <!-- flex-row with two columns -->
-    <div class="play_left">            <!-- first column              -->
+  <div class="play">                   <!-- Flex-Zeile mit zwei Spalten -->
+    <div class="play_left">            <!-- erste Spalte              -->
       <div class="clock play_clock">
         <i>14:42</i>
       </div>
@@ -34,9 +34,9 @@
                 <i id="wr_voldown_btn" class="fas fa-volume-down"></i></a>
       </div>
     </div>
-    <div id="wr_info_column" class="play_right">       <!-- second column  -->
-      <div id="wr_infos" class="play_info"></div>      <!-- info area      -->
-      <div id="wr_time" class="play_time">             <!-- current/total  -->
+    <div id="wr_info_column" class="play_right">       <!-- zweite Spalte  -->
+      <div id="wr_infos" class="play_info"></div>      <!-- Info Feld      -->
+      <div id="wr_time" class="play_time">             <!-- Aktuelle Summe -->
         <div id="wr_time_cur" class="play_time_cur"></div>
         <input id="wr_time_range" type="range" class="play_time_range"
                min="0" max="100"></input>
