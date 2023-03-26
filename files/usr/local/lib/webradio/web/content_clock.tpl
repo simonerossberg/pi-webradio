@@ -1,10 +1,10 @@
 <!--
 # ----------------------------------------------------------------------------
-# Web-interface Radio
+# Web-interface Uhr (Radio)
 #
-# Homepage Uhr
+# Uhr:
 #
-# Quelle: https://codepen.io/eehayman/pen/jVPKpN
+# (Quelle: https://codepen.io/eehayman/pen/jVPKpN) -> aber abgeändert!!
 #
 #
 # ------------------------------------------------------------------------------>
@@ -12,7 +12,6 @@
 <div id="tab_clock" class="clock_container content_area">
   <div class="rim"></div>
   <div class="outer"></div>
-  <div class="inner">
   </div>
   <i id="clock" class="clock"></i>
 </div>
