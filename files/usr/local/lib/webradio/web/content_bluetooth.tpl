@@ -6,7 +6,7 @@
 #
 #
 # ----------------------------------------------------------------------------
-
+-->
 
 <div id="tab_bluetooth" style="height: 100%; display: none" class="content_area">
   <div class="content_special">
