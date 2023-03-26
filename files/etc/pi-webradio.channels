@@ -59,11 +59,6 @@
     "logo": "dieSendungMitDerMaus.jpg"
   },
   
-  { "name": "Neckaralb Live",
-    "url":  "http://neckaralblive.ip-streaming.net/neckaralbliveaacp",
-    "logo": "NeckaralbLive.jpg"
-  },
-
   { "name": "Bayern 3",
     "url":  "http://dispatcher.rndfnk.com/br/br3/live/mp3/mid",
     "logo": "Bayern3.jpg"
@@ -94,11 +89,6 @@
     "logo": "ANTENNEBAYERNHitsFürKids.jpg"
   },
   
-  { "name": "BR Puls",
-    "url":  "http://streams.br.de/puls_2.m3u",
-    "logo": "BRPuls.jpg"
-  },
-  
   { "name": "hr 3",
     "url":  "http://dispatcher.rndfnk.com/hr/hr3/live/mp3/high",
     "logo": "hr3.jpg"
@@ -127,11 +117,6 @@
   { "name": "N-Joy",
     "url":  "http://www.ndr.de/resources/metadaten/audio/m3u/n-joy.m3u",
     "logo": "NJoy.jpg"
-  },
-  
-  { "name": "Unser Ding",
-    "url":  "http://streaming01.sr-online.de/unserding_2.m3u",
-    "logo": "Unserding.jpg"
   },
   
   { "name": "1 Live",
