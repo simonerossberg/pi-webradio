@@ -19,7 +19,7 @@ body {
   left: 5%;
   width: 90%;
   text-align: center;
-  background: #00CED1;
+  background: black;
   color: white;
   border-radius: 10px;
   font-size: 36px;
@@ -36,21 +36,21 @@ body {
   text-align: center;
   padding: 16px;
   transition: all 0.3s ease;
-  color: #00CED1;
+  color: black;
   font-size: 36px;
 }
 
 #menu a:hover {
-  background: #00CED1;
+  background: white;
 }
 
 .menu_active {
   color: linear-gradient(0.25turn, #00CED1, #4b0082, #c8a2c8, #e3b1d2, #f08080);
-  background-color: #00CED1;
+  background-color: black;
 }
 
 .menu_disabled {
-  color: linear-gradient(0.25turn, #00CED1, #4b0082);
+  color: #00CED1;
   background-color: #00CED1;
 }
 
