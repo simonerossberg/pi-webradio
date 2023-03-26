@@ -1,12 +1,12 @@
 <!--
 # ----------------------------------------------------------------------------
-# Web-interface for pi-webradio.
+# Web-interface Bluetooth für Radio
 #
-# This file defines the content page for bluetooth actions
+# Diese Datei definiert die Inhaltsseite für Bluetooth-Aktionen
 #
 #
 # ----------------------------------------------------------------------------
--->
+
 
 <div id="tab_bluetooth" style="height: 100%; display: none" class="content_area">
   <div class="content_special">
